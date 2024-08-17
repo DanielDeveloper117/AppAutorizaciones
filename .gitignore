@@ -1,0 +1,11 @@
+/node_modules
+
+# Ignorar APKs de build
+android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/release/app-release.apk
+
+# Ignorar archivos grandes de Gradle
+android/.gradle/
+
+# Ignorar archivos de historial de ejecución de Gradle
+android/.gradle/8.6/executionHistory/executionHistory.bin
