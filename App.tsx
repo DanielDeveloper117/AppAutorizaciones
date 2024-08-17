@@ -152,7 +152,7 @@ export default function App() {
       setTimeout(() => setSelectedComponent('Autorizados'), 100); // Forzar rerenderización
     } else {
       setSelectedComponent(component);
-    }
+    } 
     if (component === 'AutorizadosOrdenesCompra') {
       setTimeout(() => setSelectedComponent('AutorizadosOrdenesCompra'), 100); // Forzar rerenderización
     } else {

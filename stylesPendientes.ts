@@ -21,7 +21,7 @@ const stylesPendientes = StyleSheet.create({
       },
       cardContainer: {
         width: '100%',
-        height: 130,
+        height: 180,
         backgroundColor: '#fff',
         borderRadius: 10,
         marginBottom: 25,
