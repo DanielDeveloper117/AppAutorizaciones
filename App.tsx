@@ -49,6 +49,9 @@ export default function App() {
   
     // Method for listening for notification clicks
     OneSignal.Notifications.addEventListener('click', (event) => {
+      //EJECUTAR 
+      //    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
       console.log('OneSignal: notification clicked:', event);
     });
   //----------------------------------------------------------------------------
