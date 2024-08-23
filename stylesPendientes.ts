@@ -34,7 +34,7 @@ const stylesPendientes = StyleSheet.create({
         alignItems: 'flex-start',
       },
       cardSec1: {
-        width: '76%',
+        width: '80%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',

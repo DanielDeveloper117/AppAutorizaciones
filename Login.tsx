@@ -16,33 +16,9 @@ import App from './App';
 
 import stylesLogin from './stylesLogin'; 
 
-// Define la interfaz para el tipo de datos que esperas de la API
-interface Compra {
-    id: number;
-    nombre: string;
-    tipo: string;
-    folio: string;
-    estatus: number;
-  }
 
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const [compras, setCompras] = useState<Compra[]>([]);
-
-    useEffect(() => {
-      // Realizar la solicitud a la API para obtener las compras con estatus = 2
-      axios.get('http://10.0.2.2:3000/api/compras')
-      //axios.get('http://localhost:3000/api/compras')
-
-        .then(response => {
-          setCompras(response.data);
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos axios:', error.message);
-            console.error('Detalles del error:', error.response);
-            console.error('Config:', error.config);        });
-    }, []);
 
     const handleLogin = () => {
         console.log('Login button pressed');
@@ -97,30 +73,11 @@ const Login = () => {
         );
     };
 
-
-    const renderItem = ({ item }: { item: Compra }) => (
-        <View style={styles.item}>
-          <Text>Id: {item.id}</Text>
-          <Text>Nombre: {item.nombre}</Text>
-          <Text>Tipo: {item.tipo}</Text>
-          <Text>Folio: {item.folio}</Text>
-          <Text>Estatus: {item.estatus}</Text>
-        </View>
-      );
-
-
     let content;
 
     if (isLoggedIn) {
-        //content = <App />;
-        // Renderiza la lista de compras cuando el usuario esté logueado
-        content = (
-            <FlatList
-            data={compras} // El arreglo de datos a mostrar
-            renderItem={renderItem} // La función que renderiza cada ítem
-            keyExtractor={item => item.id.toString()} // Una clave única para cada ítem
-            />
-        );
+        content = <App />;
+
       } else {
         content = <LoginComponent />;
       }

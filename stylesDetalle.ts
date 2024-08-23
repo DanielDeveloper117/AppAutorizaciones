@@ -134,6 +134,19 @@ const stylesDetalle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  btnRojo: {
+    width: '100%',
+    height: 60,
+    backgroundColor: '#c9281cf5',
+    borderRadius: 3,
+    padding: 14,
+    marginTop: 20,
+    elevation: 2,
+    
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   textGuardar: {
     color: '#fff',
     fontSize: 22,

@@ -34,14 +34,14 @@ const stylesAutorizados = StyleSheet.create({
 
       },
       cardSec1: {
-        width: '70%',
+        width: '80%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
       },
       textFecha: {
         color: '#0000009c',
-        fontSize: 18,
+        fontSize: 16,
       },
       textTipo: {
         color: '#000',
