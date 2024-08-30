@@ -22,6 +22,23 @@ interface Compra {
     fecha: string;
     total: string;
 }
+// interface Compra {
+//     id_compra: number;
+//     c72_estatus: number;
+//     c67_comprador: string;
+//     c31_tipo: string;
+//     c6_folio: string;
+//     c7_moneda: string;
+//     c9_fecha: string;
+//     c32_provedor: string;
+//     c16_total: number;
+//     c24_concepto1: string;
+//     c25_concepto1: string;
+//     c26_concepto1: string;
+//     c30_autoriza: string;
+//     c48_solicita: string;
+//     fecha_insercion: string;
+// }
 
 export function Detalles({ idProp, onBack }: { idProp?: number; onBack: () => void }) {
     //--------------------------BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
@@ -60,6 +77,8 @@ export function Detalles({ idProp, onBack }: { idProp?: number; onBack: () => vo
                 console.log('Compra autorizada exitosamente');
                 // Actualizar el estatus localmente después de la autorización
                 setCompras(prevCompras => prevCompras.map(compra => compra.id === idProp ? { ...compra, estatus: 3 } : compra));
+                // setCompras(prevCompras => prevCompras.map(compra => compra.id_compra === idProp ? { ...compra, c72_estatus: 3 } : compra));
+
             })
             .catch(error => {
                 console.error('Error al autorizar la compra:', error.message);
@@ -75,9 +94,11 @@ export function Detalles({ idProp, onBack }: { idProp?: number; onBack: () => vo
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
                 setCompras(prevCompras => prevCompras.map(compra => compra.id === idProp ? { ...compra, estatus: 2 } : compra));
+                // setCompras(prevCompras => prevCompras.map(compra => compra.id_compra === idProp ? { ...compra, c72_estatus: 2 } : compra));
+
             })
             .catch(error => {
-                console.error('Error al autorizar la compra:', error.message);
+                console.error('Error al revertir la autorizacion:', error.message);
             });
         }
     };
@@ -112,27 +133,60 @@ export function Detalles({ idProp, onBack }: { idProp?: number; onBack: () => vo
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Id: <Text style={stylesDetalle.textDetalleValue}>{compra.id}</Text></Text>
                             </View>
+                            {/* <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Comprador: <Text style={stylesDetalle.textDetalleValue}>{compra.c67_comprador}</Text></Text>
+                            </View> */}
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Tipo: <Text style={stylesDetalle.textDetalleValue}>{compra.tipo}</Text></Text>
-                            </View>
-                            <View style={stylesDetalle.rowDetalle}>    
-                                <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.fecha).format('YYYY-MM-DD')}</Text></Text>
+                                {/* <Text style={stylesDetalle.textDetalle}>Tipo: <Text style={stylesDetalle.textDetalleValue}>{compra.c31_tipo}</Text></Text> */}
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Folio: <Text style={stylesDetalle.textDetalleValue}>{compra.folio}</Text></Text>
+                                {/* <Text style={stylesDetalle.textDetalle}>Folio: <Text style={stylesDetalle.textDetalleValue}>{compra.c6_folio}</Text></Text> */}
                             </View>
+                            {/* <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Moneda: <Text style={stylesDetalle.textDetalleValue}>{compra.c7_moneda}</Text></Text>
+                            </View> */}
+                            <View style={stylesDetalle.rowDetalle}>    
+                                <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.fecha).format('YYYY-MM-DD')}</Text></Text>
+                                {/* <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.c9_fecha).format('YYYY-MM-DD')}</Text></Text> */}
+
+                            </View>
+                            {/* <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Proveedor: <Text style={stylesDetalle.textDetalleValue}>{compra.c32_provedor}</Text></Text>
+                            </View> */}
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Nombre: <Text style={stylesDetalle.textDetalleValue}>{compra.nombre}</Text></Text>
+                                <Text style={stylesDetalle.textDetalle}>Comprador: <Text style={stylesDetalle.textDetalleValue}>{compra.nombre}</Text></Text>
                             </View>
                             <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
                                 <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
                                 <Text style={stylesDetalle.textConceptoValue}>{compra.concepto}</Text>
                             </View>
+                            {/* <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
+                                <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
+                                <Text style={stylesDetalle.textConceptoValue}>{compra.c24_concepto1}</Text>
+                            </View>
+                            <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
+                                <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
+                                <Text style={stylesDetalle.textConceptoValue}>{compra.c25_concepto2}</Text>
+                            </View>
+                            <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
+                                <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
+                                <Text style={stylesDetalle.textConceptoValue}>{compra.c26_concepto3}</Text>
+                            </View> */}
+                            {/* <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Autoriza: <Text style={stylesDetalle.textDetalleValue}>{compra.c30_autoriza}</Text></Text>
+                            </View>
+                            <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Solicita: <Text style={stylesDetalle.textDetalleValue}>{compra.c48_solicita}</Text></Text>
+                            </View> */}
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Estatus actual: <Text style={stylesDetalle.textDetalleValue}>{compra?.estatus}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Total: $<Text style={stylesDetalle.textDetalleValue}>{compra.total}</Text></Text>
+                                {/* <Text style={stylesDetalle.textDetalle}>Total: $<Text style={stylesDetalle.textDetalleValue}>{compra.c16_total}</Text></Text> */}
+
                             </View>
                         </>
                     ) : (

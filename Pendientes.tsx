@@ -7,7 +7,6 @@ import {
   ScrollView,
 } from 'react-native';
 import axios from 'axios';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Detalles from './Detalles';
 import stylesPendientes from './stylesPendientes'; 
@@ -22,6 +21,23 @@ interface Compra {
     fecha: string;
     total: string;
 }
+// interface Compra {
+//     id_compra: number;
+//     c72_estatus: number;
+//     c67_comprador: string;
+//     c31_tipo: string;
+//     c6_folio: string;
+//     c7_moneda: string;
+//     c9_fecha: string;
+//     c32_provedor: string;
+//     c16_total: number;
+//     c24_concepto1: string;
+//     c25_concepto1: string;
+//     c26_concepto1: string;
+//     c30_autoriza: string;
+//     c48_solicita: string;
+//     fecha_insercion: string;
+// }
 
 let tipoDeDetalle = "Orden"; 
 
@@ -61,6 +77,11 @@ export function Pendientes({ queryProp, propState }: { queryProp?: string; propS
         setVerDetalle(true);
         setTipoDetalle(tipo);
     };
+    // const handleCardPress = (id_compra: number, c31_tipo: string) => {
+    //     setIdDetalle(id_compra);
+    //     setVerDetalle(true);
+    //     setTipoDetalle(c31_tipo);
+    // };
 
     const PendientesComponent = () => {
         return ( 
@@ -77,24 +98,31 @@ export function Pendientes({ queryProp, propState }: { queryProp?: string; propS
                         compras.map(compra => (
                             <TouchableOpacity
                                 key={compra.id}
+                                // key={compra.id_compra}
                                 style={stylesPendientes.cardContainer}
                                 onPress={() => handleCardPress(compra.id, compra.tipo)}>
+                                {/* onPress={() => handleCardPress(compra.id_compra, compra.c31_tipo)}> */}
+
                                     
                                 <View style={stylesPendientes.cardSec1}>
 
                                     <Text style={stylesPendientes.textFecha}>
                                         {new Date(compra.fecha).toISOString().split('T')[0]}
+                                        {/* {new Date(compra.c9_fecha).toISOString().split('T')[0]} */}
                                     </Text>
 
                                     <Text style={stylesPendientes.textTipo}>{compra.tipo}</Text>
+                                    {/* <Text style={stylesPendientes.textTipo}>{compra.c31_tipo}</Text> */}
                                 </View>
 
                                 <View style={stylesPendientes.cardSec2}>
                                     <Text style={stylesPendientes.textConcepto}>{compra.concepto}</Text>
+                                    {/* <Text style={stylesPendientes.textConcepto}>{compra.c24_concepto1}</Text> */}
                                     <Icon name="keyboard-double-arrow-right" size={60} color="#00bcd4db" />
                                 </View>
                                 <View style={stylesPendientes.cardSec3}>
                                     <Text style={stylesPendientes.textTotal}>Total: $ <Text style={stylesPendientes.textTotalNumber}>{compra.total}</Text></Text>
+                                    {/* <Text style={stylesPendientes.textTotal}>Total: $ <Text style={stylesPendientes.textTotalNumber}>{compra.c16_total}</Text></Text> */}
                                 </View>
                             </TouchableOpacity>  
                         ))

@@ -22,6 +22,24 @@ interface Compra {
     fecha: string;
     total: string;
   }
+//   interface Compra {
+//     id_compra: number;
+//     c72_estatus: number;
+//     c67_comprador: string;
+//     c31_tipo: string;
+//     c6_folio: string;
+//     c7_moneda: string;
+//     c9_fecha: string;
+//     c32_provedor: string;
+//     c16_total: number;
+//     c24_concepto1: string;
+//     c25_concepto1: string;
+//     c26_concepto1: string;
+//     c30_autoriza: string;
+//     c48_solicita: string;
+//     fecha_insercion: string;
+// }
+
   let tipoDeDetalle="Orden";
 
 export function Autorizados({ queryProp, propState }: { queryProp?: string; propState?: boolean }) {
@@ -59,6 +77,12 @@ export function Autorizados({ queryProp, propState }: { queryProp?: string; prop
         setTipoDetalle(tipo);
     };
 
+    // const handleCardPress = (id_compra: number, c31_tipo: string) => {
+    //     setIdDetalle(id_compra);
+    //     setVerDetalle(true);
+    //     setTipoDetalle(c31_tipo);
+    // };
+
     // Componente para renderizar la lista de autorizados
     const AutorizadosComponent = () => {
         return ( 
@@ -76,19 +100,26 @@ export function Autorizados({ queryProp, propState }: { queryProp?: string; prop
                                 key={compra.id}
                                 style={stylesAutorizados.cardContainer} 
                                 onPress={() => handleCardPress(compra.id, compra.tipo)}>
+                                {/* onPress={() => handleCardPress(compra.id_compra, compra.c31_tipo)}> */}
+
 
                                 <View style={stylesAutorizados.cardSec1}>
                                     <Text style={stylesAutorizados.textFecha}>
                                         {new Date(compra.fecha).toISOString().split('T')[0]} {/* Formatea la fecha a 'YYYY-MM-DD' */}
+                                        {/* {new Date(compra.c9_fecha).toISOString().split('T')[0]} Formatea la fecha a 'YYYY-MM-DD' */}
+
                                     </Text>                            
                                     <Text style={stylesAutorizados.textTipo}>{compra.tipo}</Text>
+                                    {/* <Text style={stylesAutorizados.textTipo}>{compra.c31_tipo}</Text> */}
                                 </View>
                                 <View style={stylesAutorizados.cardSec2}>
                                     <Text style={stylesAutorizados.textConcepto}>{compra.concepto}</Text>
+                                    {/* <Text style={stylesAutorizados.textConcepto}>{compra.c24_concepto1}</Text> */}
                                     <Icon name="keyboard-double-arrow-right" size={60} color="#00bcd4db" />
                                 </View>
                                 <View style={stylesAutorizados.cardSec3}>
                                     <Text style={stylesAutorizados.textTotal}>Total: $ <Text style={stylesAutorizados.textTotalNumber}>{compra.total}</Text></Text>
+                                    {/* <Text style={stylesAutorizados.textTotal}>Total: $ <Text style={stylesAutorizados.textTotalNumber}>{compra.c16_total}</Text></Text> */}
                                     <View style={stylesAutorizados.viewAutorizado}>
                                         <Icon name="check-circle-outline" size={20} color="#4caf50" />
                                         <Text style={stylesAutorizados.autorizadoText}>Autorizado</Text>
