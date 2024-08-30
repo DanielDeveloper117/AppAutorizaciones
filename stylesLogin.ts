@@ -71,6 +71,11 @@ const stylesConfig = StyleSheet.create({
         fontSize: 22,
         fontWeight: '500',
       },
+      errorText: {
+        fontSize: 18,
+        color: '#ff0000',
+        fontWeight: '500',
+      }
 });
 
 export default stylesConfig;

@@ -17,6 +17,8 @@ const stylesAutorizados = StyleSheet.create({
       cardSection:{
         padding:10,
         width: '100%',
+        marginBottom: 55,
+
       },
       cardContainer: {
         width: '100%',

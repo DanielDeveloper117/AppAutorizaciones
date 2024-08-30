@@ -47,21 +47,40 @@ export function Autorizados({ queryProp, propState }: { queryProp?: string; prop
     const [verDetalle, setVerDetalle] = useState(propState); // Estado para mostrar detalles, inicialmente es false
     const [tipoDetalle, setTipoDetalle] = useState(tipoDeDetalle); // Estado inicial siempre a false
 
-
     //------BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const [compras, setCompras] = useState<Compra[]>([]);
+    const [reloadKey, setReloadKey] = useState(0); // Estado para manejar la recarga del componente
+
+    //////////// DECIDE QUE API USAR DEPENDIENDO DE LA prop queryProp QUE LE PASASTE
     useEffect(() => {
-        // Realizar la solicitud a la API
-        axios.get('http://10.0.2.2:3000/api/autorizados')
-        .then(response => {
-            setCompras(response.data);
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos axios:', error.message);
-            console.error('Detalles del error:', error.response);
-            console.error('Config:', error.config);        });
-    }, []);
-    ////////////////////////////////////////////////////////////////////////////////
+        let url;
+        switch(queryProp) {
+            case "ordenesCompra":
+                url = 'http://10.0.2.2:3000/api/autorizados/oc';
+                console.log('es oc');
+                break;
+            case "solicitudesGastos":
+                url = 'http://10.0.2.2:3000/api/autorizados/sg';
+                console.log('es sg');
+
+                break;
+            default:
+                url = 'http://10.0.2.2:3000/api/autorizados';
+                console.log('no es nada');
+                break;
+        }
+        axios.get(url)
+            .then(response => {
+                setCompras(response.data);
+                setReloadKey(prevKey => prevKey + 1);
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos axios:', error.message);
+                console.error('Detalles del error:', error.response);
+                console.error('Config:', error.config);
+            });
+    }, [queryProp]);
+    //////////////////////////////////////////////////////////////////////////////
 
     const handleBack = () => {
         setVerDetalle(false);
@@ -82,6 +101,16 @@ export function Autorizados({ queryProp, propState }: { queryProp?: string; prop
     //     setVerDetalle(true);
     //     setTipoDetalle(c31_tipo);
     // };
+    let titleText;
+    if (queryProp == 'ordenesCompra') {
+        titleText = 'Ordenes de compra autorizadas';
+    } else if (queryProp == 'solicitudesGastos') {
+        titleText = 'Solicitudes de gastos autorizadas';
+    } else if (queryProp == '') {
+        titleText = 'Compras autorizadas';
+    } else {
+        titleText = 'Compras autorizadas';
+    }
 
     // Componente para renderizar la lista de autorizados
     const AutorizadosComponent = () => {
@@ -90,7 +119,7 @@ export function Autorizados({ queryProp, propState }: { queryProp?: string; prop
             <ScrollView>
                 <View style={stylesAutorizados.title}>
                     <Icon name="check-circle-outline" size={60} color="#797676" />
-                    <Text style={stylesAutorizados.titleText}>Autorizados</Text>
+                    <Text style={stylesAutorizados.titleText}>{titleText}</Text>
                 </View>
 
                 <View style={stylesAutorizados.cardSection}>

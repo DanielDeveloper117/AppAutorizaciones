@@ -49,18 +49,36 @@ export function Pendientes({ queryProp, propState }: { queryProp?: string; propS
     const [compras, setCompras] = useState<Compra[]>([]);
     const [reloadKey, setReloadKey] = useState(0); // Estado para manejar la recarga del componente
 
+    //////////// DECIDE QUE API USAR DEPENDIENDO DE LA prop queryProp QUE LE PASASTE
     useEffect(() => {
-        axios.get('http://10.0.2.2:3000/api/compras')
+        let url;
+        switch(queryProp) {
+            case "ordenesCompra":
+                url = 'http://10.0.2.2:3000/api/compras/oc';
+                console.log('es oc');
+                break;
+            case "solicitudesGastos":
+                url = 'http://10.0.2.2:3000/api/compras/sg';
+                console.log('es sg');
+
+                break;
+            default:
+                url = 'http://10.0.2.2:3000/api/compras';
+                console.log('no es nada');
+                break;
+        }
+        axios.get(url)
             .then(response => {
                 setCompras(response.data);
-                setReloadKey(prevKey => prevKey + 1); // Incrementa la key para forzar el remontado
+                setReloadKey(prevKey => prevKey + 1);
             })
             .catch(error => {
                 console.error('Error al obtener los datos axios:', error.message);
                 console.error('Detalles del error:', error.response);
                 console.error('Config:', error.config);
             });
-    }, []);
+    }, [queryProp]);
+    //////////////////////////////////////////////////////////////////////////////
 
     console.log('ahora ver detalle es: ', verDetalle, queryProp); 
 
@@ -82,6 +100,16 @@ export function Pendientes({ queryProp, propState }: { queryProp?: string; propS
     //     setVerDetalle(true);
     //     setTipoDetalle(c31_tipo);
     // };
+    let titleText;
+    if (queryProp == 'ordenesCompra') {
+        titleText = 'Ordenes de compra pendientes';
+    } else if (queryProp == 'solicitudesGastos') {
+        titleText = 'Solicitudes de gastos pendientes';
+    } else if (queryProp == '') {
+        titleText = 'Compras pendientes';
+    } else {
+        titleText = 'Compras pendientes';
+    }
 
     const PendientesComponent = () => {
         return ( 
@@ -89,7 +117,7 @@ export function Pendientes({ queryProp, propState }: { queryProp?: string; propS
                 <ScrollView style={{paddingBottom: 220}}>
                     <View style={stylesPendientes.title}>
                         <Icon name="notifications-none" size={60} color="#797676" />
-                        <Text style={stylesPendientes.titleText}>Pendientes</Text>
+                        <Text style={stylesPendientes.titleText}>{titleText}</Text>
                     </View>
 
                     <View style={stylesPendientes.cardSection}>

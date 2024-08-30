@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pendientes from './Pendientes';
 import Autorizados from './Autorizados';
 import Configuracion from './Configuracion';
-import Login from './Login';
+//import Login from './Login';
 
 import styles from './styles';
 import { LogLevel, OneSignal } from 'react-native-onesignal';
@@ -187,17 +187,17 @@ export default function App() {
       case 'PendientesSolicitudesGastos':
         return <Pendientes queryProp="solicitudesGastos" propState={false}/>;
       case 'Autorizados':
-        return <Autorizados queryProp="" />;
+        return <Autorizados queryProp="" propState={false}/>;
       case 'AutorizadosOrdenesCompra':
-        return <Autorizados queryProp="ordenesCompra"/>;
+        return <Autorizados queryProp="ordenesCompra" propState={false}/>;
       case 'AutorizadosSolicitudesGastos':
-        return <Autorizados queryProp="solicitudesGastos"/>;
+        return <Autorizados queryProp="solicitudesGastos" propState={false}/>;
       case 'Configuracion':
         return <Configuracion />;
-      // case 'Login':
-      //   return <Login />;
+     //case 'Login':
+     //  return <Login />;
       default:
-        return <Pendientes queryProp="" />;
+        return <Pendientes queryProp="" propState={false}/>;
     }
   };
 
@@ -307,7 +307,7 @@ export default function App() {
                   setSelectedComponent(''); // Resetea el componente seleccionado
 
                 }}>
-                  <Text style={styles.menuText}>Autorizados</Text>
+                  <Text style={styles.menuText}>Autorizadas</Text>
                 </TouchableOpacity>
               </View>
 
