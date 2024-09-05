@@ -10,11 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/native": "github:react-navigation/native",
     "axios": "^1.7.4",
     "cors": "^2.8.5",
     "dayjs": "^1.11.13",
     "express": "^4.19.2",
+    "nodemailer": "^6.9.15",
     "pg": "^8.12.0",
     "react": "18.2.0",
     "react-native": "0.74.4",
@@ -22,6 +24,7 @@
     "react-native-linear-gradient": "^2.8.3",
     "react-native-onesignal": "^5.2.2",
     "react-native-push-notification": "^8.1.1",
+    "react-native-restart": "^0.0.27",
     "react-native-vector-icons": "^10.1.0",
     "react-navigation": "^5.0.0"
   },

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StatusBar,
-  StyleSheet,
   Text,
   View,
   TouchableOpacity,
@@ -11,22 +10,24 @@ import {
   Dimensions,
   Pressable,
   Image,
-  ScrollView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Importa AsyncStorage
+
+import RNRestart from 'react-native-restart';
 import Pendientes from './Pendientes';
 import Autorizados from './Autorizados';
 import Configuracion from './Configuracion';
-//import Login from './Login';
+// import Login from './Login';
 
 import styles from './styles';
 import { LogLevel, OneSignal } from 'react-native-onesignal';
 
+const { width } = Dimensions.get('window');
 
-const { width, height } = Dimensions.get('window');
-
-export default function App() {
+export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: string; tipoUsuario?: string; onLogout: () => void;}) {
+  const [usuarioState, setUsuarioState] = useState<string | undefined>(usuario);
   const [menuVisible, setMenuVisible] = useState(false);
   const menuAnim = useState(new Animated.Value(-width * 0.8))[0];
   const backdropOpacity = useState(new Animated.Value(0))[0];
@@ -34,27 +35,68 @@ export default function App() {
   const [subMenuHeightPendientes, setSubMenuHeightPendientes] = useState(new Animated.Value(0));
   const [isArrowRightVisibleAutorizados, setIsArrowRightVisibleAutorizados] = useState(true);
   const [subMenuHeightAutorizados, setSubMenuHeightAutorizados] = useState(new Animated.Value(0));
-  const [selectedComponent, setSelectedComponent] = useState('Pendientes');
+  const [selectedComponent, setSelectedComponent] = useState('');
 
+  console.log('usuario state es: ', usuarioState);
+  useEffect(() => {
+    const loadUserData = async () => {
+      try {
+        const storedUser = await AsyncStorage.getItem('usuario');
+        if (storedUser) {
+          setUsuarioState(storedUser);
+        }
+      } catch (error) {
+        console.error('Failed to load user data from AsyncStorage:', error);
+      }
+    };
+
+    loadUserData();
+  }, []);
+
+  useEffect(() => {
+    // Actualiza `usuarioState` si cambia la prop `usuario`
+    if (usuario) {
+      setUsuarioState(usuario);
+    }
+  }, [usuario]);
+  
+
+  useEffect(() => {
+    if (tipoUsuario === 'gerente') {
+      setSelectedComponent('PendientesGerentes');
+    } else if (tipoUsuario === 'director') {
+      setSelectedComponent('Pendientes');
+    }
+  }, [tipoUsuario]);
+
+  useEffect(() => {
+    const saveUserData = async () => {
+      if (usuarioState) {
+        try {
+          await AsyncStorage.setItem('usuario', usuarioState);
+        } catch (error) {
+          console.error('Failed to save user data to AsyncStorage:', error);
+        }
+      }
+    };
+
+    saveUserData();
+  }, [usuario]);
+  
   //-------------PRUEBAS DE NOTIFICACIONES PUSH OneSignal-----------------------
-    // Remove this method to stop OneSignal Debugging
-    OneSignal.Debug.setLogLevel(LogLevel.Verbose);
-
-    // OneSignal Initialization
-    OneSignal.initialize("7e4843fb-2466-4180-9343-74ef25a3ac82");
-  
-    // requestPermission will show the native iOS or Android notification permission prompt.
-    // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
-    OneSignal.Notifications.requestPermission(true);
-  
-    // Method for listening for notification clicks
-    OneSignal.Notifications.addEventListener('click', (event) => {
-      //EJECUTAR 
-      //    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-      console.log('OneSignal: notification clicked:', event);
-    });
+  // Remove this method to stop OneSignal Debugging
+  OneSignal.Debug.setLogLevel(LogLevel.Verbose);
+  // OneSignal Initialization
+  OneSignal.initialize("7e4843fb-2466-4180-9343-74ef25a3ac82");
+  // requestPermission will show the native iOS or Android notification permission prompt.
+  // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
+  OneSignal.Notifications.requestPermission(true);
+  // Method for listening for notification clicks
+  OneSignal.Notifications.addEventListener('click', (event) => {
+    console.log('OneSignal: notification clicked:', event);
+  });
   //----------------------------------------------------------------------------
+
   const toggleMenu = () => {
     if (menuVisible) {
       Animated.parallel([
@@ -99,7 +141,7 @@ export default function App() {
   const togglePendientes = () => {
     if (isArrowRightVisiblePendientes) {
       Animated.timing(subMenuHeightPendientes, {
-        toValue: 100, // Adjust based on the height of your submenu
+        toValue: 100, // Ajustar según la altura de tu submenú
         duration: 300,
         easing: Easing.out(Easing.ease),
         useNativeDriver: false,
@@ -118,7 +160,7 @@ export default function App() {
   const toggleAutorizados = () => {
     if (isArrowRightVisibleAutorizados) {
       Animated.timing(subMenuHeightAutorizados, {
-        toValue: 100, // Adjust based on the height of your submenu
+        toValue: 100, // Ajustar según la altura de tu submenú
         duration: 300,
         easing: Easing.out(Easing.ease),
         useNativeDriver: false,
@@ -135,69 +177,90 @@ export default function App() {
   };
 
   const handleSelectComponent = (component: string) => {
-    if (component === 'Pendientes') {
-      setTimeout(() => setSelectedComponent('Pendientes'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-
-    if (component === 'PendientesOrdenesCompra') {
-      setTimeout(() => setSelectedComponent('PendientesOrdenesCompra'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-    if (component === 'PendientesSolicitudesGastos') {
-      setTimeout(() => setSelectedComponent('PendientesSolicitudesGastos'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-    if (component === 'Autorizados') {
-      setTimeout(() => setSelectedComponent('Autorizados'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    } 
-    if (component === 'AutorizadosOrdenesCompra') {
-      setTimeout(() => setSelectedComponent('AutorizadosOrdenesCompra'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-    if (component === 'AutorizadosSolicitudesGastos') {
-      setTimeout(() => setSelectedComponent('AutorizadosSolicitudesGastos'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-    if (component === 'Configuracion') {
-      setTimeout(() => setSelectedComponent('Configuracion'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
-    if (component === 'Login') {
-      setTimeout(() => setSelectedComponent('Login'), 100); // Forzar rerenderización
-    } else {
-      setSelectedComponent(component);
-    }
+    setSelectedComponent(component);
   };
-  
+
   const renderComponent = () => {
     switch (selectedComponent) {
       case 'Pendientes':
-        return <Pendientes queryProp="" propState={false}/>;
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+
+      case 'PendientesGerentes':
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes  queryProp="PendientesGerentes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+
       case 'PendientesOrdenesCompra':
-        return <Pendientes queryProp="ordenesCompra" propState={false}/>;
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes queryProp="ordenesCompra" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+
+      case 'PendientesOrdenesCompraGerentes':
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes queryProp="ordenesCompraGerentes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+
       case 'PendientesSolicitudesGastos':
-        return <Pendientes queryProp="solicitudesGastos" propState={false}/>;
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes queryProp="solicitudesGastos" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+
+      case 'PendientesSolicitudesGastosGerentes':
+        console.log('Renderizar Pendientes con selectedComponent');
+        return <Pendientes queryProp="solicitudesGastosGerentes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+        
+      //----------------------------AUTORIZADOS
       case 'Autorizados':
-        return <Autorizados queryProp="" propState={false}/>;
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="Autorizados" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+      
+      case 'AutorizadosGerentes':
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="AutorizadosGerentes" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+
       case 'AutorizadosOrdenesCompra':
-        return <Autorizados queryProp="ordenesCompra" propState={false}/>;
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="ordenesCompra" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+
+      case 'AutorizadosOrdenesCompraGerentes':
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="ordenesCompraGerentes" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+
       case 'AutorizadosSolicitudesGastos':
-        return <Autorizados queryProp="solicitudesGastos" propState={false}/>;
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="solicitudesGastos" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+
+      case 'AutorizadosSolicitudesGastosGerentes':
+        console.log('Renderizar Autorizados con selectedComponent');
+        return <Autorizados queryProp="solicitudesGastosGerentes" propState={false} tipoUsuarioAutorizados={tipoUsuario} />;
+        
+      //---------------------OTROS
       case 'Configuracion':
+        console.log('Renderizar Configuracion con selectedComponent');
         return <Configuracion />;
-     //case 'Login':
-     //  return <Login />;
+        
+      // case 'Login':
+      //   return <Login />;
+        
       default:
-        return <Pendientes queryProp="" propState={false}/>;
+        if (tipoUsuario === 'gerente') {
+          console.log('Renderizar Pendientes con selectedComponent');
+          console.log('gerente, Default de selectedComponent switch: ', selectedComponent);
+          return <Pendientes queryProp="PendientesGerentes" tipoUsuarioPendientes={tipoUsuario} propState={false}/>;
+
+        } else if (tipoUsuario === 'director') {
+          console.log('Renderizar Pendientes con selectedComponent');
+          console.log('director, Default de selectedComponent switch: ', selectedComponent);
+          return <Pendientes queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+        }
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('usuario');
+      setUsuarioState(undefined);
+      onLogout(); // Llama la función de logout pasada como prop
+      RNRestart.Restart();
+    } catch (error) {
+      console.error('Failed to clear user data on logout:', error);
     }
   };
 
@@ -216,7 +279,7 @@ export default function App() {
           <View style={styles.logo}></View>
           <Text style={styles.textoLogo}>Autorizaciones digitales</Text>
         </View>
-        <TouchableOpacity style={styles.btnBurguer} onPress={toggleMenu}>
+        <TouchableOpacity style={styles.btnBurguer}  onPress={toggleMenu}>
           <Icon name="density-medium" size={55} color="#c3bfbfe8" />
         </TouchableOpacity>
       </LinearGradient>
@@ -246,7 +309,7 @@ export default function App() {
               <Image source={require('./android/app/src/images/usuario.png')} style={styles.userImage} />
             </View>
             <View style={styles.userNameContainer}>
-              <Text style={styles.userName}>Usuario01</Text>
+              <Text style={styles.userName}>{usuarioState}</Text>
             </View>
           </View>
 
@@ -257,8 +320,11 @@ export default function App() {
                 <Icon name="notifications-none" size={50} color="#c3bfbfe8" />
                 <TouchableOpacity onPress={() =>{ 
                   toggleMenu();
-                  handleSelectComponent('Pendientes');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('PendientesGerentes');
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('Pendientes');
+                  }
                 }}>
                   <Text style={styles.menuText}>Pendientes</Text>
                 </TouchableOpacity>
@@ -277,8 +343,11 @@ export default function App() {
               <View style={styles.subOptionsContainer}>
                 <TouchableOpacity onPress={() =>{ 
                   toggleMenu();
-                  handleSelectComponent('PendientesOrdenesCompra');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('PendientesOrdenesCompraGerentes');
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('PendientesOrdenesCompra');
+                  }
                 }}>
                   <Text style={styles.textSubPendientes}>Ordenes de compra</Text>
                 </TouchableOpacity>
@@ -287,8 +356,11 @@ export default function App() {
               <View style={styles.subOptionsContainer}>
                 <TouchableOpacity onPress={() =>{ 
                   toggleMenu();
-                  handleSelectComponent('PendientesSolicitudesGastos');   
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('PendientesSolicitudesGastosGerentes');   
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('PendientesSolicitudesGastos');   
+                  }
                 }}>
                   <Text style={styles.textSubPendientes}>Solicitudes de gastos</Text>
                 </TouchableOpacity>
@@ -303,9 +375,11 @@ export default function App() {
                 <Icon name="check-circle-outline" size={48} color="#c3bfbfe8" />
                 <TouchableOpacity onPress={() => {
                   toggleMenu();
-                  handleSelectComponent('Autorizados');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
-
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('AutorizadosGerentes');
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('Autorizados');
+                  }
                 }}>
                   <Text style={styles.menuText}>Autorizadas</Text>
                 </TouchableOpacity>
@@ -324,8 +398,11 @@ export default function App() {
               <View style={styles.subOptionsContainer}>
                 <TouchableOpacity onPress={() => {
                   toggleMenu();
-                  handleSelectComponent('AutorizadosOrdenesCompra');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('AutorizadosOrdenesCompraGerentes');
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('AutorizadosOrdenesCompra');
+                  }
 
                 }}>
                   <Text style={styles.textSubAutorizados}>Ordenes de compra</Text>
@@ -335,8 +412,11 @@ export default function App() {
               <View style={styles.subOptionsContainer}>
                 <TouchableOpacity onPress={() => {
                   toggleMenu();
-                  handleSelectComponent('AutorizadosSolicitudesGastos');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
+                    handleSelectComponent('AutorizadosSolicitudesGastosGerentes');
+                  }else if(tipoUsuario=="director"){
+                    handleSelectComponent('AutorizadosSolicitudesGastos');
+                  }
 
                 }}>
                   <Text style={styles.textSubAutorizados}>Solicitudes de gastos</Text>
@@ -349,9 +429,12 @@ export default function App() {
               <Icon name="miscellaneous-services" size={50} color="#c3bfbfe8" />
               <TouchableOpacity onPress={() => {
                   toggleMenu();
-                  handleSelectComponent('Configuracion');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
+                  if(tipoUsuario=="gerente"){
 
+                  }else if(tipoUsuario=="director"){
+
+                  }
+                  handleSelectComponent('Configuracion');
                 }}>
                 <Text style={styles.menuText}>Configuracion</Text>
               </TouchableOpacity>
@@ -359,12 +442,7 @@ export default function App() {
 
             <View style={styles.optionContainer}>
               <Icon name="logout" size={50} color="#c3bfbfe8" />
-              <TouchableOpacity onPress={() =>{ 
-                  toggleMenu();
-                  handleSelectComponent('Login');
-                  setSelectedComponent(''); // Resetea el componente seleccionado
-
-                }}>
+              <TouchableOpacity onPress={handleLogout}>
                 <Text style={styles.menuText}>Cerrar sesion</Text>
               </TouchableOpacity>
             </View>
@@ -377,10 +455,6 @@ export default function App() {
         {renderComponent()}
       </SafeAreaView>
 
-
-
     </SafeAreaView>
   );
 }
-
-

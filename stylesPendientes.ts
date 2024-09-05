@@ -42,7 +42,8 @@ const stylesPendientes = StyleSheet.create({
         alignItems: 'center',
       },
       textFecha: {
-        color: '#ffeb3b',
+        // color: '#ffeb3b',
+        color: '#0000009c',
         fontWeight: '600',
         fontSize: 16,
       },

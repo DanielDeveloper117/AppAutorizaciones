@@ -665,6 +665,17 @@
 352-->[com.facebook.soloader:soloader:0.10.5] C:\Users\Usuario\.gradle\caches\transforms-4\c5277b14eec9cc4a12d0fb10c9f8e27e\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:13:13-57
 353            android:value="false" />
 353-->[com.facebook.soloader:soloader:0.10.5] C:\Users\Usuario\.gradle\caches\transforms-4\c5277b14eec9cc4a12d0fb10c9f8e27e\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:14:13-34
-354    </application>
-355
-356</manifest>
+354
+355        <activity
+355-->[com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\caches\transforms-4\b400b23ca2ab23c46ab028824786e623\transformed\jetified-process-phoenix-2.1.2\AndroidManifest.xml:8:9-12:75
+356            android:name="com.jakewharton.processphoenix.ProcessPhoenix"
+356-->[com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\caches\transforms-4\b400b23ca2ab23c46ab028824786e623\transformed\jetified-process-phoenix-2.1.2\AndroidManifest.xml:9:13-73
+357            android:exported="false"
+357-->[com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\caches\transforms-4\b400b23ca2ab23c46ab028824786e623\transformed\jetified-process-phoenix-2.1.2\AndroidManifest.xml:10:13-37
+358            android:process=":phoenix"
+358-->[com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\caches\transforms-4\b400b23ca2ab23c46ab028824786e623\transformed\jetified-process-phoenix-2.1.2\AndroidManifest.xml:11:13-39
+359            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+359-->[com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\caches\transforms-4\b400b23ca2ab23c46ab028824786e623\transformed\jetified-process-phoenix-2.1.2\AndroidManifest.xml:12:13-72
+360    </application>
+361
+362</manifest>

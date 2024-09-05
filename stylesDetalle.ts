@@ -133,6 +133,8 @@ const stylesDetalle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 300,
+
   },
   btnRojo: {
     width: '100%',
@@ -146,6 +148,8 @@ const stylesDetalle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 300,
+
   },
   textGuardar: {
     color: '#fff',
