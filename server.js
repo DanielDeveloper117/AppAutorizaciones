@@ -257,37 +257,80 @@ app.post('/api/login', async (req, res) => {
 
 
 // ACTUALIZAR CON LA ID DE COMPRA EL ESTATUS DEL REGISTRO
+// app.get('/api/autorizar/:id', async (req, res) => {
+//     const { id } = req.params;
+//     try {
+//         const result = await pool.query("UPDATE estatus_kepler SET c72_estatus = '3' WHERE id_compra = $1", [id]);
+
+//         if (result.rowCount > 0) {
+//             // Si se actualizó la compra, enviar un correo
+//             const mailOptions = {
+//                 from: 'desarrollo2.sistemas@sellosyretenes.com',
+//                 to: 'sistemas@sellosyretenes.com',
+//                 subject: 'Compra Autorizada',
+//                 text: `La compra con ID ${id} ha sido autorizada.`
+//             };
+
+//             transporter.sendMail(mailOptions, (error, info) => {
+//                 if (error) {
+//                     console.error('Error al enviar el correo:', error);
+//                     return res.status(500).json({ updated: result.rowCount, emailSent: false, error: 'Error al enviar el correo.' });
+//                 }
+//                 console.log('Correo enviado:', info.response);
+//                 res.json({ updated: result.rowCount, emailSent: true });
+//             });
+//         } else {
+//             res.json({ updated: result.rowCount, emailSent: false });
+//         }
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send('Error al actualizar los datos');
+//     }
+// });
+
+// ACTUALIZAR CON LA ID DE COMPRA EL ESTATUS DEL REGISTRO
 app.get('/api/autorizar/:id', async (req, res) => {
     const { id } = req.params;
+    let folio = '';
+
     try {
-        const result = await pool.query("UPDATE estatus_kepler SET c72_estatus = '3' WHERE id_compra = $1", [id]);
+        // Obtener el folio antes de la actualización
+        const result = await pool.query('SELECT * FROM estatus_kepler WHERE id_compra = $1', [id]);
+        
+        if (result.rows.length > 0) {
+            folio = result.rows[0].c6_folio; // Obtener el folio del primer resultado
 
-        if (result.rowCount > 0) {
-            // Si se actualizó la compra, enviar un correo
-            const mailOptions = {
-                from: 'desarrollo2.sistemas@sellosyretenes.com',
-                to: 'sistemas@sellosyretenes.com',
-                subject: 'Compra Autorizada',
-                text: `La compra con ID ${id} ha sido autorizada.`
-            };
+            // Actualizar el estatus
+            const updateResult = await pool.query("UPDATE estatus_kepler SET c72_estatus = '3' WHERE id_compra = $1", [id]);
 
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    console.error('Error al enviar el correo:', error);
-                    return res.status(500).json({ updated: result.rowCount, emailSent: false, error: 'Error al enviar el correo.' });
-                }
-                console.log('Correo enviado:', info.response);
-                res.json({ updated: result.rowCount, emailSent: true });
-            });
+            if (updateResult.rowCount > 0) {
+                // Si se actualizó la compra, enviar un correo
+                const mailOptions = {
+                    from: 'desarrollo2.sistemas@sellosyretenes.com',
+                    to: 'desarrollo.sistemas@sellosyretenes.com',
+                    subject: 'Compra Autorizada',
+                    text: `La compra con folio: ${folio} ha sido autorizada por dirección.`
+                };
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.error('Error al enviar el correo:', error);
+                        return res.status(500).json({ updated: updateResult.rowCount, emailSent: false, error: 'Error al enviar el correo.' });
+                    }
+                    console.log('Correo enviado:', info.response);
+                    res.json({ updated: updateResult.rowCount, emailSent: true });
+                });
+            } else {
+                res.json({ updated: updateResult.rowCount, emailSent: false });
+            }
         } else {
-            res.json({ updated: result.rowCount, emailSent: false });
+            res.status(404).send('Registro no encontrado');
         }
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error al actualizar los datos');
+        res.status(500).send('Error al procesar la solicitud');
     }
 });
-
 
 
 // Iniciar el servidor en el puerto 3000

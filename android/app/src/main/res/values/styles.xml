@@ -1,9 +1,12 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <!-- Referencia el color desde colors.xml -->
+        <!-- <item name="android:colorBackground">@color/background_icon_color</item> Cambié a "android:colorBackground" -->
     </style>
 
 </resources>
+
