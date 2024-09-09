@@ -1,174 +1,147 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   SafeAreaView,
   Text,
   View,
   TouchableOpacity,
   TextInput,
-  StyleSheet
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import axios from 'axios';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNRestart from 'react-native-restart';
-
 import App from './App';
+
 import stylesLogin from './stylesLogin';
 
 const Login = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-    const [usuario, setUsuario] = useState<string>('');
-    const [pass, setPass] = useState<string>('');
-    const [error, setError] = useState<string>('');
-    const [tipoUsuario, setTipoUsuario] = useState<string>('');
+  // Usamos refs para evitar la re-renderización del componente TextInput
+  const usuarioRef = useRef<string>('');
+  const passRef = useRef<string>('');
 
-    useEffect(() => {
-        const checkLoginStatus = async () => {
-            try {
-                const storedUser = await AsyncStorage.getItem('userSession');
-                console.log('Estado guardado de la sesión:', storedUser);
-                if (storedUser) {
-                    const userSession = JSON.parse(storedUser);
-                    setIsLoggedIn(true);
-                    setTipoUsuario(userSession.tipoUsuario);
-                }
-            } catch (error) {
-                console.error('Error loading user session', error);
-            }
-        };
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+  const [tipoUsuario, setTipoUsuario] = useState<string>('');
 
-        checkLoginStatus();
-    }, []);
-
-    const handleLogin = async () => {
-        console.log('Enviando solicitud con:', { usuario, pass });
-    
-        try {
-            const response = await axios.post('http://10.0.2.2:3000/api/login', {
-                usuario,
-                pass
-            });
-            
-            console.log('Respuesta de la API:', response.data);
-            
-            if (response.data.authenticated) {
-                const tipoUsuarioResponse = response.data.usuario;
-                setIsLoggedIn(true);
-                setTipoUsuario(tipoUsuarioResponse);
-                setError('');
-                
-                // Guardar datos de sesión en AsyncStorage
-                await AsyncStorage.setItem('userSession', JSON.stringify({ tipoUsuario: tipoUsuarioResponse }));
-            } else {
-                if (response.data.message === 'Usuario o contraseña incorrectos') {
-                    setError('Usuario o contraseña incorrectos. Por favor, verifica tus datos.');
-                } else {
-                    setError(response.data.message || 'No se pudo iniciar sesión. Inténte de nuevo.');
-                }
-            }
-        } catch (error) {
-            console.error('Error en la autenticación:', error);
-    
-            let errorMessage = 'No se pudo conectar con el servidor. Intente más tarde.';
-    
-            if (error instanceof Error) {
-                if (axios.isAxiosError(error)) {
-                    if (error.response) {
-                        if (error.response.status === 400) {
-                            errorMessage = 'Por favor, llene todos los campos solicitados.';
-                        } else if (error.response.status === 401) {
-                            errorMessage = 'Usuario o contraseña incorrectos. Por favor, verifique la información.';
-                        }
-                    } else if (error.request) {
-                        errorMessage = 'No fue posible conectarse al servidor. Verifique su conexión a internet.';
-                    }
-                } else {
-                    errorMessage = error.message;
-                }
-            }
-    
-            setError(errorMessage);
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const storedUser = await AsyncStorage.getItem('userSession');
+        if (storedUser) {
+          const userSession = JSON.parse(storedUser);
+          setIsLoggedIn(true);
+          setTipoUsuario(userSession.tipoUsuario);
         }
+      } catch (error) {
+        console.error('Error loading user session', error);
+      }
     };
 
-    const handleLogout = async () => {
-        try {
-            await AsyncStorage.removeItem('userSession'); // Borra el usuario de AsyncStorage
-            setUsuario(''); // Resetea el estado del usuario
-            setIsLoggedIn(false); // Marca al usuario como no autenticado
-            setTipoUsuario(''); // Resetea el tipo de usuario
-        } catch (error) {
-            console.error('Failed to clear user data from AsyncStorage:', error);
-        }
-        RNRestart.Restart(); // Reinicia la aplicación
-    };
+    checkLoginStatus();
+  }, []);
 
-    const LoginComponent = () => {
-        return (
-            <SafeAreaView style={stylesLogin.body}>
-                <View style={stylesLogin.section}>
-                    <LinearGradient
-                        colors={['#003c7e', '#2989d8', '#003c7e', '#7db9e8']}
-                        locations={[0, 0.5, 1, 1]}
-                        style={stylesLogin.sectionForm}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                    >
-                        <View style={stylesLogin.iconContainer}>
-                            <Icon name="account-circle" size={100} color="#ededed" />
-                        </View>
-                        <View style={stylesLogin.inputContainer}>
-                            <Text style={stylesLogin.label}>Usuario</Text>
-                            <TextInput
-                                style={stylesLogin.input}
-                                placeholder="Ingresa tu nombre de usuario"
-                                keyboardType="default"
-                                value={usuario}
-                                onChangeText={setUsuario}
-                            />
-                        </View>
+  const handleLogin = async () => {
+    const usuario = usuarioRef.current;
+    const pass = passRef.current;
 
-                        <View style={stylesLogin.inputContainer}>
-                            <Text style={stylesLogin.label}>Contraseña</Text>
-                            <TextInput
-                                style={stylesLogin.input}
-                                placeholder="Ingresa tu contraseña"
-                                secureTextEntry={true}
-                                value={pass}
-                                onChangeText={setPass}
-                            />
-                        </View>
+    if (!usuario || !pass) {
+      setError('Por favor, llena todos los campos.');
+      return;
+    }
 
-                        {error ? <Text style={stylesLogin.errorText}>{error}</Text> : null}
+    try {
+      const response = await axios.post('http://10.0.2.2:3000/api/login', {
+        usuario,
+        pass,
+      });
 
-                        <TouchableOpacity style={stylesLogin.btnGuardar} onPress={handleLogin}>
-                            <Text style={stylesLogin.textGuardar}>Iniciar sesión</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
-            </SafeAreaView>
-        );
-    };
+      if (response.data.authenticated) {
+        const tipoUsuarioResponse = response.data.usuario;
+        setIsLoggedIn(true);
+        setTipoUsuario(tipoUsuarioResponse);
+        setError('');
+        await AsyncStorage.setItem('userSession', JSON.stringify({ tipoUsuario: tipoUsuarioResponse }));
+      } else {
+        setError('Usuario o contraseña incorrectos.');
+      }
+    } catch (error) {
+      setError('Error al conectar con el servidor.');
+    }
+  };
 
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('userSession');
+      setIsLoggedIn(false);
+      setTipoUsuario('');
+      RNRestart.Restart();
+    } catch (error) {
+      console.error('Error al cerrar sesión', error);
+    }
+  };
+
+  const LoginComponent = () => {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            {isLoggedIn ? <App usuario={usuario} tipoUsuario={tipoUsuario} onLogout={handleLogout} /> : <LoginComponent />}
-        </SafeAreaView>
-    );
-};
+      <KeyboardAvoidingView
+        style={stylesLogin.body}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
+        <View style={stylesLogin.section}>
+          <LinearGradient
+            colors={['#003c7e', '#2989d8', '#003c7e', '#7db9e8']}
+            locations={[0, 0.5, 1, 1]}
+            style={stylesLogin.sectionForm}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+          >
+            <View style={stylesLogin.iconContainer}>
+              <Icon name="account-circle" size={100} color="#ededed" />
+            </View>
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#fff',
-    },
-    item: {
-        padding: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
-    },
-});
+            <View style={stylesLogin.inputContainer}>
+              <Text style={stylesLogin.label}>Correo</Text>
+              <TextInput
+                style={stylesLogin.input}
+                placeholder="Ingresa tu correo"
+                keyboardType="default"
+                onChangeText={(text) => (usuarioRef.current = text)}
+                autoCorrect={false}
+                autoCapitalize="none"
+              />
+            </View>
+
+            <View style={stylesLogin.inputContainer}>
+              <Text style={stylesLogin.label}>Contraseña</Text>
+              <TextInput
+                style={stylesLogin.input}
+                placeholder="Ingresa tu contraseña"
+                secureTextEntry={true}
+                onChangeText={(text) => (passRef.current = text)}
+                autoCorrect={false}
+                autoCapitalize="none"
+              />
+            </View>
+
+            {error ? <Text style={stylesLogin.errorText}>{error}</Text> : null}
+
+            <TouchableOpacity style={stylesLogin.btnGuardar} onPress={handleLogin}>
+              <Text style={stylesLogin.textGuardar}>Iniciar sesión</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
+      </KeyboardAvoidingView>
+    );
+  };
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      {isLoggedIn ? <App usuario={usuarioRef.current} tipoUsuario={tipoUsuario} onLogout={handleLogout} /> : <LoginComponent />}
+    </SafeAreaView>
+  );
+};
 
 export default Login;

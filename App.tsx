@@ -179,12 +179,13 @@ export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: strin
   const handleSelectComponent = (component: string) => {
     setSelectedComponent(component);
   };
+  
 
-  const renderComponent = () => {
-    switch (selectedComponent) {
-      case 'Pendientes':
-        console.log('Renderizar Pendientes con selectedComponent');
-        return <Pendientes queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+const renderComponent = () => {
+  const key = `component-${selectedComponent}`;
+  switch (selectedComponent) {
+    case 'Pendientes':
+      return <Pendientes key={key} queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
 
       case 'PendientesGerentes':
         console.log('Renderizar Pendientes con selectedComponent');
@@ -248,7 +249,7 @@ export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: strin
         } else if (tipoUsuario === 'director') {
           console.log('Renderizar Pendientes con selectedComponent');
           console.log('director, Default de selectedComponent switch: ', selectedComponent);
-          return <Pendientes queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
+          return <Pendientes key={key} queryProp="Pendientes" propState={false} tipoUsuarioPendientes={tipoUsuario} />;
         }
     }
   };

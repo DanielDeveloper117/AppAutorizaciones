@@ -42,17 +42,13 @@ import stylesAutorizados from './stylesAutorizados';
     fecha_insercion: string;
 }
 
-let tipoDeDetalle="Orden";
-
 export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { queryProp?: string; propState?: boolean; tipoUsuarioAutorizados?: string; }) {
     const [idDetalle, setIdDetalle] = useState<number | null>(null); // Estado para almacenar el id del detalle seleccionado
     const [verDetalle, setVerDetalle] = useState(propState); // Estado para mostrar detalles, inicialmente es false
-    const [tipoDetalle, setTipoDetalle] = useState(tipoDeDetalle); // Estado inicial siempre a false
-
-    //------BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const [compras, setCompras] = useState<Compra[]>([]);
-    const [reloadKey, setReloadKey] = useState(0); // Estado para manejar la recarga del componente
+    const [forceRender, setForceRender] = useState(0); // Estado para forzar re-renderizado
 
+    console.log('ahora ver detalle es: ', verDetalle, queryProp, forceRender, propState);
     //////////// DECIDE QUE API USAR DEPENDIENDO DE LA prop queryProp QUE LE PASASTE
     useEffect(() => {
         let url;
@@ -107,48 +103,43 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
                 url = 'http://10.0.2.2:3000/api/error';
                 (<Text>Cargando...</Text>)
                 console.log('query es: ', queryProp);
-                console.log('todas');
+                console.log('es error');
                 
                 break;
         }
         axios.get(url)
             .then(response => {
                 setCompras(response.data);
-                setReloadKey(prevKey => prevKey + 1);
             })
             .catch(error => {
                 console.error('Error al obtener los datos axios:', error.message);
                 console.error('Detalles del error:', error.response);
                 console.error('Config:', error.config);
             });
-    }, [queryProp]);
+    }, [forceRender, queryProp]);
     //////////////////////////////////////////////////////////////////////////////
 
-    console.log('ahora ver detalle es: ', verDetalle, queryProp); 
-
-    const handleBack = () => {
-        setVerDetalle(false);
-    };
-
-    useEffect(() => {
-        setVerDetalle(propState);
-      }, [propState]);
-      console.log('ahora ver detalle es: ', verDetalle, queryProp);
-
-
-    // const handleCardPress = (id: number, tipo: string) => {
-    //     setIdDetalle(id);
-    //     setVerDetalle(true);
-    //     setTipoDetalle(tipo);
-    // };
-
+    // Manejo de selección de detalles
     const handleCardPress = (id_compra: number, c31_tipo: string) => {
         setIdDetalle(id_compra);
-        setVerDetalle(true);
-        setTipoDetalle(c31_tipo);
+        setVerDetalle(true);  // Mostrar el detalle cuando se presiona una tarjeta
     };
-    console.log('ahora ver detalle es: ', verDetalle, queryProp);
+    // Manejo del botón de regresar
+    const handleBack = (forceUpdate = false) => {
+        setVerDetalle(false);
+        if (forceUpdate) {
+            setForceRender(prev => prev + 1);  // Forzar re-render si forceUpdate es true
+        }
+    };
+    // Para manejar el caso donde se seleccione la misma opción del menú
+    useEffect(() => {
+        // Si el componente ya se había renderizado (detalles visibles) y se selecciona el mismo queryProp
+        if (verDetalle) {
+            setForceRender(prev => prev + 1); // Cambiamos forceRender para forzar re-renderizado
+        }
+    }, [queryProp]);
 
+    console.log('ahora ver detalle es: ', verDetalle, queryProp, forceRender, propState);
 
     let titleText;
     if (queryProp == 'ordenesCompra' || queryProp == 'ordenesCompraGerentes') {
@@ -211,9 +202,8 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
                             ))
                         ) : (
                             <View style={stylesAutorizados.cardContainer}>
-                                { 
-                                    compras.length == 0 ? (<Text>Cargando...</Text>) : <Text>No hay datos disponibles</Text>
-                                }
+                                <Text>{compras.length === 0 ? 'Cargando...' : 'No hay datos disponibles'}</Text>
+                                {/* <Text>{compras.length === 0 ? 'No se encontraron resultados.' : 'Cargando...'}</Text> */}
                             </View>
                         )}
                 </View>

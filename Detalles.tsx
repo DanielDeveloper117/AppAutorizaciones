@@ -11,18 +11,6 @@ import stylesDetalle from './stylesDetalle';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
-
-//interface Compra {
-//    id: number;
-//    nombre: string;
-//    tipo: string;
-//    folio: string;
-//    estatus: number;
-//    concepto: string;
-//    fecha: string;
-//    total: string;
-//}
-
 interface Compra {
     id_compra: number;
     c72_estatus: string;
@@ -41,7 +29,7 @@ interface Compra {
     fecha_insercion: string;
 }
 
-export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: number; onBack: () => void; tipoUsuarioDetalles?: string; }) {
+export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: number; onBack: (forceUpdate?: boolean) => void; tipoUsuarioDetalles?: string; }) {
     //--------------------------BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const [compras, setCompras] = useState<Compra[]>([]);
     console.log('tipo de usuario es: ', tipoUsuarioDetalles);
@@ -61,22 +49,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
         }
     }, [idProp]);
     //////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
-    // const autorizarCompra = () => {
-    //     if (idProp) {
-    //         axios.get(`http://10.0.2.2:3000/api/autorizar/${idProp}`)
-    //         .then(response => {
-    //             console.log('Compra autorizada exitosamente');
-    //             // Actualizar el estatus localmente después de la autorización
-    //             //setCompras(prevCompras => prevCompras.map(compra => compra.id === idProp ? { ...compra, estatus: 3 } : compra));
-    //             setCompras(prevCompras => prevCompras.map(compra => compra.id_compra === idProp ? { ...compra, c72_estatus: '3' } : compra));
 
-    //         })
-    //         .catch(error => {
-    //             console.error('Error al autorizar la compra:', error.message);
-    //         });
-    //     }
-    // };
     const autorizarCompra = () => {
         if (idProp) {
             axios.get(`http://10.0.2.2:3000/api/autorizar/${idProp}`)
@@ -92,6 +65,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     
                 // Actualizar el estatus localmente después de la autorización
                 setCompras(prevCompras => prevCompras.map(compra => compra.id_compra === idProp ? { ...compra, c72_estatus: '3' } : compra));
+                //onBack(true); // si quieres que automaticamente redirija despues de autorizar
             })
             .catch(error => {
                 console.error('Error al autorizar la compra:', error.message);
@@ -158,10 +132,10 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     return (
         <SafeAreaView style={{ height: '100%' }}>
             <ScrollView>
-                {/* <TouchableOpacity style={stylesDetalle.backButton} onPress={onBack}>
+                <TouchableOpacity style={stylesDetalle.backButton} onPress={() => onBack(true)}>
                     <Icon name="arrow-back" size={50} color="#00bcd4db" />
                     <Text style={stylesDetalle.backButtonText}>Regresar</Text>
-                </TouchableOpacity> */}
+                </TouchableOpacity>
     
                 <View style={stylesDetalle.title}>
                     <Icon name="article" size={60} color="#797676" />
@@ -171,9 +145,6 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                 <View style={stylesDetalle.sectionDetalles}>
                     {compra ? (
                         <>
-                            {/* <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Id: <Text style={stylesDetalle.textDetalleValue}>{compra.id}</Text></Text>
-                            </View> */}
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Comprador: <Text style={stylesDetalle.textDetalleValue}>{compra.c67_comprador}</Text></Text>
                             </View>
@@ -200,13 +171,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Proveedor: <Text style={stylesDetalle.textDetalleValue}>{compra.c32_provedor}</Text></Text>
                             </View>
-                            {/* <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Comprador: <Text style={stylesDetalle.textDetalleValue}>{compra.nombre}</Text></Text>
-                            </View> */}
-                            {/* <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
-                                <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
-                                <Text style={stylesDetalle.textConceptoValue}>{compra.concepto}</Text>
-                            </View> */}
+
                             <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
                                 <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
                                 <Text style={stylesDetalle.textConceptoValue}>{compra.c24_concepto1}</Text>
@@ -225,11 +190,8 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Solicita: <Text style={stylesDetalle.textDetalleValue}>{compra.c48_solicita}</Text></Text>
                             </View>
-                            {/* <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Estatus actual: <Text style={stylesDetalle.textDetalleValue}>{compra?.estatus}</Text></Text>
-                            </View> */}
+
                             <View style={stylesDetalle.rowDetalle}>
-                                {/* <Text style={stylesDetalle.textDetalle}>Total: $<Text style={stylesDetalle.textDetalleValue}>{compra.total}</Text></Text> */}
                                 <Text style={stylesDetalle.textDetalle}>Total: $<Text style={stylesDetalle.textDetalleValue}>{compra.c16_total}</Text></Text>
 
                             </View>

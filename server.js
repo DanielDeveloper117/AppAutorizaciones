@@ -333,7 +333,8 @@ app.get('/api/autorizar/:id', async (req, res) => {
 });
 
 
-// Iniciar el servidor en el puerto 3000
-app.listen(3000, '0.0.0.0', () => {
-    console.log('Servidor corriendo en http://0.0.0.0:3000');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Servidor ejecutándose en el puerto ${port}`);
 });
+

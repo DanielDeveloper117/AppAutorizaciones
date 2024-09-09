@@ -30,48 +30,79 @@ interface Compra {
     fecha_insercion: string;
 }
 
-let tipoDeDetalle = "Orden";
-
 export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { queryProp?: string; propState?: boolean; tipoUsuarioPendientes?: string; }) {
 
     const [idDetalle, setIdDetalle] = useState<number | null>(null); 
     const [verDetalle, setVerDetalle] = useState(propState); 
     const [compras, setCompras] = useState<Compra[]>([]);
     const [forceRender, setForceRender] = useState(0); // Estado para forzar re-renderizado
-    console.log('ahora ver detalle es: ', verDetalle, queryProp);
+    console.log('ahora ver detalle es: ', verDetalle, queryProp, forceRender, propState);
 
     // Decide qué API usar dependiendo de la prop queryProp que le pasaste
     useEffect(() => {
         let url;
         switch(queryProp) {
             case "Pendientes":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras';
+                console.log('query es: ', queryProp);
+                console.log('todas directores');
                 break;
+
             case "PendientesGerentes":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras/gerentes';
+                console.log('query es: ', queryProp);
+                console.log('todas gerentes');
                 break;
+
             case "ordenesCompra":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras/oc';
+                console.log('query es: ', queryProp);
+                console.log('es oc');
                 break;
+
             case "ordenesCompraGerentes":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras/oc/gerentes';
+                console.log('query es: ', queryProp);
+                console.log('es oc');
                 break;
+
             case "solicitudesGastos":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras/sg';
+                console.log('query es: ', queryProp);
+                console.log('es sg');
                 break;
+
             case "solicitudesGastosGerentes":
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/compras/sg/gerentes';
+                console.log('query es: ', queryProp);
+                console.log('es sg');
                 break;
+
             default:
+                setVerDetalle(false);
+                setIdDetalle(0);
                 url = 'http://10.0.2.2:3000/api/error';
+                (<Text>Cargando...</Text>)
+                console.log('query es: ', queryProp);
+                console.log('es error');
                 break;
         }
 
         axios.get(url)
             .then(response => {
                 setCompras(response.data);
-                setVerDetalle(false); // Reiniciar el estado de verDetalle al cargar nuevos datos
-                setIdDetalle(null);   // Reiniciar idDetalle
             })
             .catch(error => {
                 console.error('Error al obtener los datos axios:', error.message);
@@ -79,17 +110,21 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
                 console.error('Config:', error.config);
             });
     }, [forceRender, queryProp]);  // Agregamos forceRender al array de dependencias
+    //////////////////////////////////////////////////////////////////////////////
+
 
     // Manejo de selección de detalles
     const handleCardPress = (id_compra: number, c31_tipo: string) => {
         setIdDetalle(id_compra);
         setVerDetalle(true);  // Mostrar el detalle cuando se presiona una tarjeta
     };
-
-    const handleBack = () => {
+    // Manejo del botón de regresar
+    const handleBack = (forceUpdate = false) => {
         setVerDetalle(false);
+        if (forceUpdate) {
+            setForceRender(prev => prev + 1);  // Forzar re-render si forceUpdate es true
+        }
     };
-
     // Para manejar el caso donde se seleccione la misma opción del menú
     useEffect(() => {
         // Si el componente ya se había renderizado (detalles visibles) y se selecciona el mismo queryProp
@@ -97,7 +132,8 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             setForceRender(prev => prev + 1); // Cambiamos forceRender para forzar re-renderizado
         }
     }, [queryProp]);
-    console.log('ahora ver detalle es: ', verDetalle, queryProp, forceRender);
+
+    console.log('ahora ver detalle es: ', verDetalle, queryProp, forceRender, propState);
 
     const PendientesComponent = () => {
         return ( 
@@ -136,6 +172,8 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
                         ) : (
                             <View style={stylesPendientes.cardContainer}>
                                 <Text>{compras.length === 0 ? 'Cargando...' : 'No hay datos disponibles'}</Text>
+                                {/* <Text>{compras.length === 0 ? 'No se encontraron resultados.' : 'Cargando...'}</Text> */}
+
                             </View>
                         )}
                     </View>
