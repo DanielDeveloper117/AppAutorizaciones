@@ -1,4 +1,4 @@
-#Sat Sep 07 11:19:04 CST 2024
+#Tue Sep 10 14:24:49 CST 2024
 base.0=C\:\\Users\\Usuario\\Documents\\ProyectoAppNotificaciones\\AppNotification\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 base.1=C\:\\Users\\Usuario\\Documents\\ProyectoAppNotificaciones\\AppNotification\\android\\app\\build\\intermediates\\global_synthetics_dex\\release\\classes.dex
 base.2=C\:\\Users\\Usuario\\Documents\\ProyectoAppNotificaciones\\AppNotification\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
