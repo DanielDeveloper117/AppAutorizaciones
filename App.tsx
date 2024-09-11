@@ -26,6 +26,8 @@ import { LogLevel, OneSignal } from 'react-native-onesignal';
 
 const { width } = Dimensions.get('window');
 
+
+
 export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: string; tipoUsuario?: string; onLogout: () => void;}) {
   const [usuarioState, setUsuarioState] = useState<string | undefined>(usuario);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -52,6 +54,22 @@ export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: strin
 
     loadUserData();
   }, []);
+
+  const EmailDisplay = ({ usuarioState }: {usuarioState?: string}) => {
+    if (!usuarioState) {
+      return <Text style={styles.userName}>No se encontro el correo</Text>;
+    }
+  
+    // Dividir el correo en dos partes: antes y después del arroba
+    const [localPart, domainPart] = usuarioState.split('@');
+  
+    return (
+      <Text style={styles.userName}>
+        {localPart}{"\n"}@{domainPart}
+      </Text>
+    );
+  };
+  
 
   useEffect(() => {
     // Actualiza `usuarioState` si cambia la prop `usuario`
@@ -310,7 +328,7 @@ const renderComponent = () => {
               <Image source={require('./android/app/src/images/usuario.png')} style={styles.userImage} />
             </View>
             <View style={styles.userNameContainer}>
-              <Text style={styles.userName}>{usuarioState}</Text>
+              <EmailDisplay usuarioState={usuarioState} />
             </View>
           </View>
 
@@ -426,7 +444,7 @@ const renderComponent = () => {
             </Animated.View>
             {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
 
-            <View style={styles.optionContainer}>
+            {/* <View style={styles.optionContainer}>
               <Icon name="miscellaneous-services" size={50} color="#c3bfbfe8" />
               <TouchableOpacity onPress={() => {
                   toggleMenu();
@@ -439,7 +457,7 @@ const renderComponent = () => {
                 }}>
                 <Text style={styles.menuText}>Configuracion</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
             <View style={styles.optionContainer}>
               <Icon name="logout" size={50} color="#c3bfbfe8" />

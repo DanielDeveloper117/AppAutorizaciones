@@ -37,7 +37,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////// CONSULTA QUE LA INFORMACION DE LA COMPRA CON LA ID
     useEffect(() => {
         if (idProp) {
-            axios.get(`http://10.0.2.2:3000/api/compra/${idProp}`)
+            axios.get(`http://187.189.75.29:3000/api/compra/${idProp}`)
             .then(response => {
                 const compraData = response.data[0];  // accediendo al primer elemento del array
                 console.log('Datos de la compra:', compraData);
@@ -52,7 +52,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
 
     const autorizarCompra = () => {
         if (idProp) {
-            axios.get(`http://10.0.2.2:3000/api/autorizar/${idProp}`)
+            axios.get(`http://187.189.75.29:3000/api/autorizar/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
     
@@ -78,7 +78,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const autorizarCompraGerentes = () => {
         if (idProp) {
-            axios.get(`http://10.0.2.2:3000/api/autorizar/gerentes/${idProp}`)
+            axios.get(`http://187.189.75.29:3000/api/autorizar/gerentes/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -95,7 +95,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacion = () => {
         if (idProp) {
-            axios.get(`http://10.0.2.2:3000/api/revertir/${idProp}`)
+            axios.get(`http://187.189.75.29:3000/api/revertir/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -112,7 +112,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacionGerentes = () => {
         if (idProp) {
-            axios.get(`http://10.0.2.2:3000/api/revertir/gerentes/${idProp}`)
+            axios.get(`http://187.189.75.29:3000/api/revertir/gerentes/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización

@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     userNameContainer: {},
     userName: {
       color: '#fff',
-      fontSize: 26,
+      fontSize: 20,
       fontWeight: '600',
       marginLeft: 8,
     },
