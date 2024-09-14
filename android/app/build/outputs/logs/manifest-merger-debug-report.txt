@@ -6,6 +6,9 @@ INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotificati
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:2:1-9:12
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-onesignal] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-push-notification] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-push-notification\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -131,6 +134,8 @@ ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\
 MERGED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:5:5-24:19
 MERGED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:5:5-24:19
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:5:5-8:50
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
 MERGED from [com.facebook.react:react-android:0.74.4] C:\Users\Usuario\.gradle\caches\transforms-4\af547bd0d6b859d6b490959996fda082\transformed\jetified-react-android-0.74.4-debug\AndroidManifest.xml:18:5-22:19
 MERGED from [com.facebook.react:react-android:0.74.4] C:\Users\Usuario\.gradle\caches\transforms-4\af547bd0d6b859d6b490959996fda082\transformed\jetified-react-android-0.74.4-debug\AndroidManifest.xml:18:5-22:19
 MERGED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:48:5-112:19
@@ -237,6 +242,12 @@ INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotificati
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-onesignal] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
@@ -433,6 +444,28 @@ MERGED from [com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\cac
 		INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml
+provider#com.vinzscam.reactnativefileviewer.FileProvider
+ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-60
+	android:exported
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-75
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+	android:resource
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+	android:name
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:2:1-9:12 reason: com.rnfs requested WRITE_EXTERNAL_STORAGE
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from [com.facebook.react:react-android:0.74.4] C:\Users\Usuario\.gradle\caches\transforms-4\af547bd0d6b859d6b490959996fda082\transformed\jetified-react-android-0.74.4-debug\AndroidManifest.xml:16:5-78
 	android:name

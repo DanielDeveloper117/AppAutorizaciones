@@ -42,8 +42,11 @@ com.appnotifications.app-merged_res-40 C:\Users\Usuario\Documents\ProyectoAppNot
 com.appnotifications.app-debug-41 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\res
 com.appnotifications.app-main-42 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\res
 com.appnotifications.app-packaged_res-43 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\debug
-com.appnotifications.app-packaged_res-44 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\packaged_res\debug
-com.appnotifications.app-packaged_res-45 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\packaged_res\debug
-com.appnotifications.app-packaged_res-46 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-push-notification\android\build\intermediates\packaged_res\debug
-com.appnotifications.app-packaged_res-47 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-restart\android\build\intermediates\packaged_res\debug
-com.appnotifications.app-packaged_res-48 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-44 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-45 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-46 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-47 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-48 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-49 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-push-notification\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-50 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-restart\android\build\intermediates\packaged_res\debug
+com.appnotifications.app-packaged_res-51 C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug

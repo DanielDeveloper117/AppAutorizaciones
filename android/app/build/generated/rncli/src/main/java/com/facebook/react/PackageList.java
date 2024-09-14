@@ -13,6 +13,12 @@ import java.util.ArrayList;
 
 // @react-native-async-storage/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.RNDocumentPickerPackage;
+// react-native-file-viewer
+import com.vinzscam.reactnativefileviewer.RNFileViewerPackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
 // react-native-linear-gradient
 import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-onesignal
@@ -69,6 +75,9 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
+      new RNDocumentPickerPackage(),
+      new RNFileViewerPackage(),
+      new RNFSPackage(),
       new LinearGradientPackage(),
       new ReactNativeOneSignalPackage(),
       new ReactNativePushNotificationPackage(),

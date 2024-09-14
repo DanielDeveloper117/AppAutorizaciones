@@ -127,7 +127,7 @@ const stylesDetalle = StyleSheet.create({
     backgroundColor: '#3ae641',
     borderRadius: 3,
     padding: 14,
-    marginTop: 20,
+    marginTop: 30,
     elevation: 2,
     
     flexDirection: 'row',
@@ -142,7 +142,7 @@ const stylesDetalle = StyleSheet.create({
     backgroundColor: '#c9281cf5',
     borderRadius: 3,
     padding: 14,
-    marginTop: 20,
+    marginTop: 30,
     elevation: 2,
     
     flexDirection: 'row',
@@ -150,6 +150,27 @@ const stylesDetalle = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 300,
 
+  },
+  btnPdf: {
+    width: '100%',
+    height: 60,
+    backgroundColor: '#860102',
+    borderRadius: 3,
+    padding: 14,
+    marginTop: 10,
+    elevation: 2,
+    
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+
+  },
+  textPdf: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: '500',
+    paddingRight: 10,
   },
   textGuardar: {
     color: '#fff',

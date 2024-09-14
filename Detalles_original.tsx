@@ -10,10 +10,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import stylesDetalle from './stylesDetalle'; 
 import axios from 'axios';
 import dayjs from 'dayjs';
-import RNFS from 'react-native-fs'; // Importamos react-native-fs
-import FileViewer from 'react-native-file-viewer'; // Importamos el file viewer
-import { Alert } from 'react-native';
-
 
 interface Compra {
     id_compra: number;
@@ -31,8 +27,6 @@ interface Compra {
     c30_autoriza: string;
     c48_solicita: string;
     fecha_insercion: string;
-    pdf_fac: string;
-    requisicion: string;
 }
 
 export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: number; onBack: (forceUpdate?: boolean) => void; tipoUsuarioDetalles?: string; }) {
@@ -134,87 +128,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////////////////////////////////////////////////////
     // Buscar la compra específica por idProp
     const compra = compras.length > 0 ? compras[0] : null;
-    console.log('pdf factura: ', compra?.pdf_fac);
-    console.log('requisicion: ', compra?.requisicion);
-
-    const downloadPdf = async () => {
-        if (idProp) {
-            try {
-                const url = `http://192.168.1.220:3000/api/documento/${idProp}`;
-                const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.pdf_fac}`;
     
-                console.log('Iniciando descarga de pdf factura...');
-                console.log('URL de descarga:', url);
-                console.log('Ruta local del archivo:', localFile);
-    
-                const downloadOptions = {
-                    fromUrl: url,
-                    toFile: localFile,
-                };
-    
-                const result = await RNFS.downloadFile(downloadOptions).promise;
-    
-                console.log('Resultado de la descarga:', result);
-                console.log('Código de estado:', result.statusCode);
-    
-                if (result.statusCode === 200) {
-                    // Verifica si el archivo se guardó correctamente
-                    const fileStat = await RNFS.stat(localFile);
-                    console.log('Estadísticas del archivo: ', fileStat);
-    
-                    // Notifica al usuario que la descarga fue exitosa
-                    Alert.alert('Descarga exitosa', 'Documento de factura descargado correctamente.');
-                } else {
-                    Alert.alert('Error', 'No se pudo descargar el documento.');
-                }
-            } catch (error) {
-                console.error('Error al descargar el PDF Factura:', error);
-                Alert.alert('Error', 'Ocurrió un problema al intentar descargar el documento.');
-            }
-        } else {
-            Alert.alert('Error', 'ID de documento no proporcionado.');
-        }
-    };
-    
-    const downloadReq = async () => {
-        if (idProp) {
-            try {
-                const url = `http://187.189.75.29:3000/api/documento/${idProp}`;
-                const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.requisicion}`;
-    
-                console.log('Iniciando descarga de requisicion...');
-                console.log('URL de descarga:', url);
-                console.log('Ruta local del archivo:', localFile);
-    
-                const downloadOptions = {
-                    fromUrl: url,
-                    toFile: localFile,
-                };
-    
-                const result = await RNFS.downloadFile(downloadOptions).promise;
-    
-                console.log('Resultado de la descarga:', result);
-                console.log('Código de estado:', result.statusCode);
-    
-                if (result.statusCode === 200) {
-                    // Verifica si el archivo se guardó correctamente
-                    const fileStat = await RNFS.stat(localFile);
-                    console.log('Estadísticas del archivo: ', fileStat);
-    
-                    // Notifica al usuario que la descarga fue exitosa
-                    Alert.alert('Descarga exitosa', 'Documento de requisición descargado correctamente.');
-                } else {
-                    Alert.alert('Error', 'No se pudo descargar el documento.');
-                }
-            } catch (error) {
-                console.error('Error al descargar requisicion:', error);
-                Alert.alert('Error', 'Ocurrió un problema al intentar descargar el documento.');
-            }
-        } else {
-            Alert.alert('Error', 'ID de documento no proporcionado.');
-        }
-    };
-
     return (
         <SafeAreaView style={{ height: '100%' }}>
             <ScrollView>
@@ -293,13 +207,9 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                     )}
                 </View>
 
-                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
-                    <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
-                    <Icon name="download" size={30} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadReq}>
-                    <Text style={stylesDetalle.textPdf}>Descargar requisición</Text>
-                    <Icon name="download" size={30} color="#fff" />
+                <TouchableOpacity style={stylesDetalle.btnPdf} >
+                    <Text style={stylesDetalle.textPdf}>Ver documento</Text>
+                    <Icon name="picture-as-pdf" size={30} color="#fff" />
                 </TouchableOpacity>
 
                 {(compra?.c72_estatus == '1' && tipoUsuarioDetalles == "gerente") ? (
