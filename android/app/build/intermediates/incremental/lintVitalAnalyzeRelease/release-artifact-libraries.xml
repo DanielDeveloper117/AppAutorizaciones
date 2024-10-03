@@ -962,6 +962,45 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name=":@@:react-native-document-picker::release"
+      jars="C:\Users\Usuario\.gradle\caches\transforms-4\d88056b1ddad16cf446b8748bec14a6c\transformed\out\jars\classes.jar;C:\Users\Usuario\.gradle\caches\transforms-4\d88056b1ddad16cf446b8748bec14a6c\transformed\out\jars\libs\R.jar"
+      resolved="AppNotifications:react-native-document-picker:unspecified"
+      folder="C:\Users\Usuario\.gradle\caches\transforms-4\d88056b1ddad16cf446b8748bec14a6c\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name=":@@:react-native-file-viewer::release"
+      jars="C:\Users\Usuario\.gradle\caches\transforms-4\fa0b62380bfebc7f7794892f961ee5db\transformed\out\jars\classes.jar;C:\Users\Usuario\.gradle\caches\transforms-4\fa0b62380bfebc7f7794892f961ee5db\transformed\out\jars\libs\R.jar"
+      resolved="AppNotifications:react-native-file-viewer:unspecified"
+      folder="C:\Users\Usuario\.gradle\caches\transforms-4\fa0b62380bfebc7f7794892f961ee5db\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name=":@@:react-native-fs::release"
+      jars="C:\Users\Usuario\.gradle\caches\transforms-4\a88c23ea85d0a4f62b9425355da5aabd\transformed\out\jars\classes.jar;C:\Users\Usuario\.gradle\caches\transforms-4\a88c23ea85d0a4f62b9425355da5aabd\transformed\out\jars\libs\R.jar"
+      resolved="AppNotifications:react-native-fs:unspecified"
+      folder="C:\Users\Usuario\.gradle\caches\transforms-4\a88c23ea85d0a4f62b9425355da5aabd\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name=":@@:react-native-linear-gradient::release"
       jars="C:\Users\Usuario\.gradle\caches\transforms-4\c14dae427697fd8f89536341281d4988\transformed\out\jars\classes.jar;C:\Users\Usuario\.gradle\caches\transforms-4\c14dae427697fd8f89536341281d4988\transformed\out\jars\libs\R.jar"
       resolved="AppNotifications:react-native-linear-gradient:unspecified"

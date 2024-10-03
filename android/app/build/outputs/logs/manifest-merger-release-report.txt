@@ -1,10 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-25:12
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-27:12
+INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-27:12
+INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-27:12
+INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-27:12
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-19:12
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-onesignal] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-push-notification] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-push-notification\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
@@ -123,9 +126,31 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Us
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Usuario\.gradle\caches\transforms-4\57c529c9094f14ba39109be8b87d6aa8\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:3:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:4:5-79
+MERGED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:10:5-79
+MERGED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-messaging:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\179d21310f995818d4e75f47d6864f7b\transformed\jetified-firebase-messaging-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\179d21310f995818d4e75f47d6864f7b\transformed\jetified-firebase-messaging-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\4a1d5b87e269b6f901a20474e258d985\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\4a1d5b87e269b6f901a20474e258d985\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Usuario\.gradle\caches\transforms-4\7320eae96660fdb9a2294fa88d325bd6\transformed\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Usuario\.gradle\caches\transforms-4\7320eae96660fdb9a2294fa88d325bd6\transformed\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Usuario\.gradle\caches\transforms-4\2db01250d4897b14b020b7f6b2cfa11f\transformed\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Usuario\.gradle\caches\transforms-4\2db01250d4897b14b020b7f6b2cfa11f\transformed\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
+MERGED from [androidx.work:work-runtime:2.8.1] C:\Users\Usuario\.gradle\caches\transforms-4\3abf8487675719594d50bf120b789310\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:5-79
+MERGED from [androidx.work:work-runtime:2.8.1] C:\Users\Usuario\.gradle\caches\transforms-4\3abf8487675719594d50bf120b789310\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Usuario\.gradle\caches\transforms-4\57c529c9094f14ba39109be8b87d6aa8\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Usuario\.gradle\caches\transforms-4\57c529c9094f14ba39109be8b87d6aa8\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Usuario\.gradle\caches\transforms-4\baaf65834bcf214fdd27a3ac2872505a\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Usuario\.gradle\caches\transforms-4\baaf65834bcf214fdd27a3ac2872505a\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:4:22-76
 application
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:5:5-24:19
-INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:5:5-24:19
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:6:5-26:19
+INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:6:5-26:19
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-17:19
 MERGED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:48:5-112:19
 MERGED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:48:5-112:19
 MERGED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:12:5-26:19
@@ -177,47 +202,55 @@ MERGED from [com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\cac
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Usuario\.gradle\caches\transforms-4\6621c239d1e00abea0752787fff99403\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:7:7-47
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:9:7-47
 	android:roundIcon
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:9:7-52
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:11:7-52
 	android:icon
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:8:7-41
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:10:7-41
 	android:allowBackup
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:10:7-34
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-34
 	android:theme
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:11:7-38
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-38
+	android:networkSecurityConfig
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:7:7-67
 	android:name
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:6:7-38
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:8:7-38
 activity#com.appnotifications.MainActivity
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-23:18
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:14:7-25:18
 	android:label
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:14:9-49
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:16:9-49
 	android:launchMode
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:16:9-40
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:18:9-40
 	android:windowSoftInputMode
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:17:9-51
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:19:9-51
 	android:exported
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:18:9-32
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:9-32
 	android:configChanges
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:15:9-118
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:17:9-118
 	android:name
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:9-37
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:15:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:19:9-22:25
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:9-24:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:13-65
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:22:13-65
 	android:name
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:21-62
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:22:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:13-73
+ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:23:13-73
 	android:name
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:23-70
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:23:23-70
 uses-sdk
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-document-picker] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-document-picker\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-linear-gradient] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-onesignal] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-onesignal\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
@@ -414,6 +447,28 @@ MERGED from [com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\cac
 		INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml
+provider#com.vinzscam.reactnativefileviewer.FileProvider
+ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-60
+	android:exported
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-75
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-15:70
+	android:resource
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:17-67
+	android:name
+		ADDED from [:react-native-file-viewer] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-file-viewer\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:17-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from [:react-native-fs] C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\node_modules\react-native-fs\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:1:1-27:12 reason: com.rnfs requested WRITE_EXTERNAL_STORAGE
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:10:5-12:47
 	android:protectionLevel
@@ -682,24 +737,6 @@ ADDED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\
 		ADDED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:111:13-72
 	android:name
 		ADDED from [com.onesignal:notifications:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\3f3272ea416e4ec165077a10bcfcaafc\transformed\jetified-notifications-5.1.17\AndroidManifest.xml:107:13-110
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-messaging:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\179d21310f995818d4e75f47d6864f7b\transformed\jetified-firebase-messaging-21.1.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-messaging:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\179d21310f995818d4e75f47d6864f7b\transformed\jetified-firebase-messaging-21.1.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\4a1d5b87e269b6f901a20474e258d985\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\Usuario\.gradle\caches\transforms-4\4a1d5b87e269b6f901a20474e258d985\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Usuario\.gradle\caches\transforms-4\7320eae96660fdb9a2294fa88d325bd6\transformed\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Usuario\.gradle\caches\transforms-4\7320eae96660fdb9a2294fa88d325bd6\transformed\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Usuario\.gradle\caches\transforms-4\2db01250d4897b14b020b7f6b2cfa11f\transformed\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Usuario\.gradle\caches\transforms-4\2db01250d4897b14b020b7f6b2cfa11f\transformed\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
-MERGED from [androidx.work:work-runtime:2.8.1] C:\Users\Usuario\.gradle\caches\transforms-4\3abf8487675719594d50bf120b789310\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:5-79
-MERGED from [androidx.work:work-runtime:2.8.1] C:\Users\Usuario\.gradle\caches\transforms-4\3abf8487675719594d50bf120b789310\transformed\work-runtime-2.8.1\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Usuario\.gradle\caches\transforms-4\57c529c9094f14ba39109be8b87d6aa8\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Usuario\.gradle\caches\transforms-4\57c529c9094f14ba39109be8b87d6aa8\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Usuario\.gradle\caches\transforms-4\baaf65834bcf214fdd27a3ac2872505a\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Usuario\.gradle\caches\transforms-4\baaf65834bcf214fdd27a3ac2872505a\transformed\jetified-transport-runtime-2.2.5\AndroidManifest.xml:22:5-79
-	android:name
-		ADDED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:10:22-76
 service#com.onesignal.core.services.SyncService
 ADDED from [com.onesignal:core:5.1.17] C:\Users\Usuario\.gradle\caches\transforms-4\5d009c44b1090c3161695c76ce9c213d\transformed\jetified-core-5.1.17\AndroidManifest.xml:13:9-16:43
 	android:exported

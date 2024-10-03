@@ -932,6 +932,15 @@
       name=":@@:react-native-async-storage_async-storage::release"
       project=":react-native-async-storage_async-storage"/>
   <library
+      name=":@@:react-native-document-picker::release"
+      project=":react-native-document-picker"/>
+  <library
+      name=":@@:react-native-file-viewer::release"
+      project=":react-native-file-viewer"/>
+  <library
+      name=":@@:react-native-fs::release"
+      project=":react-native-fs"/>
+  <library
       name=":@@:react-native-linear-gradient::release"
       project=":react-native-linear-gradient"/>
   <library

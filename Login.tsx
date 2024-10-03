@@ -53,12 +53,31 @@ const Login = () => {
       return;
     }
 
+    // try {
+    //   const response = await axios.post('http://192.168.1.131:3000/api/login', {
+    //     usuario,
+    //     pass,
+    //   });
+
+    //   if (response.data.authenticated) {
+    //     const tipoUsuarioResponse = response.data.usuario;
+    //     setIsLoggedIn(true);
+    //     setTipoUsuario(tipoUsuarioResponse);
+    //     setError('');
+    //     await AsyncStorage.setItem('userSession', JSON.stringify({ tipoUsuario: tipoUsuarioResponse }));
+    //   } else {
+    //     setError('Usuario o contraseña incorrectos.');
+    //   }
+    // } catch (error) {
+    //   setError('Error al conectar con el servidor.');
+    // }
+
     try {
-      const response = await axios.post('http://192.168.1.220:3000/api/login', {
+      const response = await axios.post('http://192.168.1.131:3000/api/login', {
         usuario,
         pass,
       });
-
+    
       if (response.data.authenticated) {
         const tipoUsuarioResponse = response.data.usuario;
         setIsLoggedIn(true);
@@ -69,8 +88,32 @@ const Login = () => {
         setError('Usuario o contraseña incorrectos.');
       }
     } catch (error) {
-      setError('Error al conectar con el servidor.');
+      // Comprobar si error tiene una respuesta del servidor
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          // El servidor respondió con un código de error
+          console.error('Error en la respuesta del servidor:', error.response.data);
+          console.error('Código de estado:', error.response.status);
+          console.error('Encabezados:', error.response.headers);
+          setError(`Error del servidor: ${error.response.status} - ${error.response.data}`);
+        } else if (error.request) {
+          // No se recibió respuesta del servidor
+          console.error('No se recibió respuesta del servidor:', error.request);
+          setError('No se recibió respuesta del servidor.');
+        } else {
+          // Otro tipo de error relacionado con la solicitud
+          console.error('Error en la solicitud:', error.message);
+          setError(`Error en la solicitud: ${error.message}`);
+        }
+      } else {
+        // Error no relacionado con axios
+        console.error('Error desconocido:', error);
+        setError('Error desconocido al conectar con el servidor.');
+      }
     }
+    
+
+
   };
 
   const handleLogout = async () => {

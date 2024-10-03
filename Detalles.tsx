@@ -43,7 +43,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////// CONSULTA QUE LA INFORMACION DE LA COMPRA CON LA ID
     useEffect(() => {
         if (idProp) {
-            axios.get(`http://187.189.75.29:3000/api/compra/${idProp}`)
+            axios.get(`http://192.168.1.131:3000/api/compra/${idProp}`)
             .then(response => {
                 const compraData = response.data[0];  // accediendo al primer elemento del array
                 console.log('Datos de la compra:', compraData);
@@ -58,7 +58,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
 
     const autorizarCompra = () => {
         if (idProp) {
-            axios.get(`http://187.189.75.29:3000/api/autorizar/${idProp}`)
+            axios.get(`http://192.168.1.131:3000/api/autorizar/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
     
@@ -84,7 +84,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const autorizarCompraGerentes = () => {
         if (idProp) {
-            axios.get(`http://187.189.75.29:3000/api/autorizar/gerentes/${idProp}`)
+            axios.get(`http://192.168.1.131:3000/api/autorizar/gerentes/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -101,7 +101,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacion = () => {
         if (idProp) {
-            axios.get(`http://187.189.75.29:3000/api/revertir/${idProp}`)
+            axios.get(`http://192.168.1.131:3000/api/revertir/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -118,7 +118,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacionGerentes = () => {
         if (idProp) {
-            axios.get(`http://187.189.75.29:3000/api/revertir/gerentes/${idProp}`)
+            axios.get(`http://192.168.1.131:3000/api/revertir/gerentes/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -140,7 +140,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     const downloadPdf = async () => {
         if (idProp) {
             try {
-                const url = `http://192.168.1.220:3000/api/documento/${idProp}`;
+                const url = `http://192.168.1.131:3000/api/documento/${idProp}`;
                 const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.pdf_fac}`;
     
                 console.log('Iniciando descarga de pdf factura...');
@@ -156,20 +156,20 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     
                 console.log('Resultado de la descarga:', result);
                 console.log('Código de estado:', result.statusCode);
-    
+                
                 if (result.statusCode === 200) {
-                    // Verifica si el archivo se guardó correctamente
                     const fileStat = await RNFS.stat(localFile);
+                    // Verifica si el archivo se guardó correctamente
                     console.log('Estadísticas del archivo: ', fileStat);
-    
                     // Notifica al usuario que la descarga fue exitosa
                     Alert.alert('Descarga exitosa', 'Documento de factura descargado correctamente.');
                 } else {
-                    Alert.alert('Error', 'No se pudo descargar el documento.');
+                    console.error('Status code no es 200 ok.');
+                    Alert.alert('Descarga no exitosa', 'El documento no existe.');
                 }
             } catch (error) {
                 console.error('Error al descargar el PDF Factura:', error);
-                Alert.alert('Error', 'Ocurrió un problema al intentar descargar el documento.');
+                Alert.alert('Descarga no exitosa', 'Error al intentar buscar el documento.');
             }
         } else {
             Alert.alert('Error', 'ID de documento no proporcionado.');
@@ -179,7 +179,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     const downloadReq = async () => {
         if (idProp) {
             try {
-                const url = `http://187.189.75.29:3000/api/documento/${idProp}`;
+                const url = `http://192.168.1.131:3000/api/documento/${idProp}`;
                 const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.requisicion}`;
     
                 console.log('Iniciando descarga de requisicion...');
@@ -204,11 +204,12 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                     // Notifica al usuario que la descarga fue exitosa
                     Alert.alert('Descarga exitosa', 'Documento de requisición descargado correctamente.');
                 } else {
-                    Alert.alert('Error', 'No se pudo descargar el documento.');
+                    console.error('Status code no es 200 ok.');
+                    Alert.alert('Descarga no exitosa', 'El documento no existe.');
                 }
             } catch (error) {
                 console.error('Error al descargar requisicion:', error);
-                Alert.alert('Error', 'Ocurrió un problema al intentar descargar el documento.');
+                Alert.alert('Descarga no exitosa', 'Error al intentar buscar el documento.');
             }
         } else {
             Alert.alert('Error', 'ID de documento no proporcionado.');
