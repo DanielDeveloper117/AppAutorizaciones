@@ -11,7 +11,7 @@ const stylesAutorizados = StyleSheet.create({
       },
       titleText: {
         color: '#000',
-        fontSize: 32,
+        fontSize: 26,
         marginLeft: 8,
       },
       cardSection:{

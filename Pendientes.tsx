@@ -45,7 +45,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "Pendientes":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras';
+                url = 'http://192.168.1.220:3000/api/compras';
                 console.log('query es: ', queryProp);
                 console.log('todas directores');
                 break;
@@ -53,7 +53,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "PendientesGerentes":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras/gerentes';
+                url = 'http://192.168.1.220:3000/api/compras/gerentes';
                 console.log('query es: ', queryProp);
                 console.log('todas gerentes');
                 break;
@@ -61,7 +61,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "ordenesCompra":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras/oc';
+                url = 'http://192.168.1.220:3000/api/compras/oc';
                 console.log('query es: ', queryProp);
                 console.log('es oc');
                 break;
@@ -69,7 +69,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "ordenesCompraGerentes":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras/oc/gerentes';
+                url = 'http://192.168.1.220:3000/api/compras/oc/gerentes';
                 console.log('query es: ', queryProp);
                 console.log('es oc');
                 break;
@@ -77,7 +77,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "solicitudesGastos":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras/sg';
+                url = 'http://192.168.1.220:3000/api/compras/sg';
                 console.log('query es: ', queryProp);
                 console.log('es sg');
                 break;
@@ -85,7 +85,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             case "solicitudesGastosGerentes":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/compras/sg/gerentes';
+                url = 'http://192.168.1.220:3000/api/compras/sg/gerentes';
                 console.log('query es: ', queryProp);
                 console.log('es sg');
                 break;
@@ -93,7 +93,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             default:
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/error';
+                url = 'http://192.168.1.220:3000/api/error';
                 (<Text>Cargando...</Text>)
                 console.log('query es: ', queryProp);
                 console.log('es error');
@@ -141,7 +141,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
                 <ScrollView>
                     <View style={stylesPendientes.title}>
                         <Icon name="notifications-none" size={60} color="#797676" />
-                        <Text style={stylesPendientes.titleText}>{queryProp === 'ordenesCompra' || queryProp === 'ordenesCompraGerentes' ? 'Ordenes de compra pendientes' : 'Compras pendientes'}</Text>
+                        <Text style={stylesPendientes.titleText}>{queryProp === 'ordenesCompra' || queryProp === 'ordenesCompraGerentes' ? 'Ordenes pendientes' : 'Solicitudes pendientes'}</Text>
                     </View>
 
                     <View style={stylesPendientes.cardSection}>
@@ -166,6 +166,8 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
                                     </View>
                                     <View style={stylesPendientes.cardSec3}>
                                         <Text style={stylesPendientes.textTotal}>Total: $ <Text style={stylesPendientes.textTotalNumber}>{compra.c16_total}</Text></Text>
+                                        <Text style={stylesPendientes.textFecha}>{compra.c6_folio}</Text>
+
                                     </View>
                                 </TouchableOpacity>  
                             ))

@@ -123,48 +123,48 @@
 61-->[androidx.core:core:1.9.0] C:\Users\Usuario\.gradle\caches\transforms-4\6621c239d1e00abea0752787fff99403\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 62
 63    <application
-63-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:5:5-24:19
+63-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:7:5-26:19
 64        android:name="com.appnotifications.MainApplication"
-64-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:6:7-38
+64-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:8:7-38
 65        android:allowBackup="false"
-65-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:10:7-34
+65-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-34
 66        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 66-->[androidx.core:core:1.9.0] C:\Users\Usuario\.gradle\caches\transforms-4\6621c239d1e00abea0752787fff99403\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 67        android:debuggable="true"
 68        android:extractNativeLibs="false"
 69        android:icon="@mipmap/ic_launcher"
-69-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:8:7-41
+69-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:10:7-41
 70        android:label="@string/appnotifications"
-70-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:7:7-47
+70-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:9:7-47
 71        android:roundIcon="@mipmap/ic_launcher_round"
-71-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:9:7-52
+71-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:11:7-52
 72        android:theme="@style/AppTheme"
-72-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:11:7-38
+72-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-38
 73        android:usesCleartextTraffic="true" >
 73-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:6:9-44
 74        <activity
-74-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-23:18
+74-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:14:7-25:18
 75            android:name="com.appnotifications.MainActivity"
-75-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:9-37
+75-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:15:9-37
 76            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-76-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:15:9-118
+76-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:17:9-118
 77            android:exported="true"
-77-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:18:9-32
+77-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:9-32
 78            android:label="@string/appnotifications"
-78-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:14:9-49
+78-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:16:9-49
 79            android:launchMode="singleTask"
-79-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:16:9-40
+79-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:18:9-40
 80            android:windowSoftInputMode="adjustResize" >
-80-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:17:9-51
+80-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:19:9-51
 81            <intent-filter>
-81-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:19:9-22:25
+81-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:9-24:25
 82                <action android:name="android.intent.action.MAIN" />
-82-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:13-65
-82-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:20:21-62
+82-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:22:13-65
+82-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:22:21-62
 83
 84                <category android:name="android.intent.category.LAUNCHER" />
-84-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:13-73
-84-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:21:23-70
+84-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:23:13-73
+84-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:23:23-70
 85            </intent-filter>
 86        </activity>
 87

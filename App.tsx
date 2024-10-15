@@ -65,7 +65,9 @@ export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: strin
   
     return (
       <Text style={styles.userName}>
-        {localPart}{"\n"}@{domainPart}
+        {/* {localPart}{"\n"}@{domainPart} */}
+        {localPart}{"\n"}@{"sellosyretenes.com"}
+
       </Text>
     );
   };

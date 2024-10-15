@@ -54,7 +54,7 @@ const Login = () => {
     }
 
     // try {
-    //   const response = await axios.post('http://192.168.1.131:3000/api/login', {
+    //   const response = await axios.post('http://192.168.1.220:3000/api/login', {
     //     usuario,
     //     pass,
     //   });
@@ -73,7 +73,7 @@ const Login = () => {
     // }
 
     try {
-      const response = await axios.post('http://192.168.1.131:3000/api/login', {
+      const response = await axios.post('http://192.168.1.220:3000/api/login', {
         usuario,
         pass,
       });

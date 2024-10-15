@@ -31,6 +31,7 @@ interface Compra {
     c30_autoriza: string;
     c48_solicita: string;
     fecha_insercion: string;
+    pdf_coti: string
     pdf_fac: string;
     requisicion: string;
 }
@@ -43,7 +44,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////// CONSULTA QUE LA INFORMACION DE LA COMPRA CON LA ID
     useEffect(() => {
         if (idProp) {
-            axios.get(`http://192.168.1.131:3000/api/compra/${idProp}`)
+            axios.get(`http://192.168.1.220:3000/api/compra/${idProp}`)
             .then(response => {
                 const compraData = response.data[0];  // accediendo al primer elemento del array
                 console.log('Datos de la compra:', compraData);
@@ -58,7 +59,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
 
     const autorizarCompra = () => {
         if (idProp) {
-            axios.get(`http://192.168.1.131:3000/api/autorizar/${idProp}`)
+            axios.get(`http://192.168.1.220:3000/api/autorizar/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
     
@@ -84,7 +85,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const autorizarCompraGerentes = () => {
         if (idProp) {
-            axios.get(`http://192.168.1.131:3000/api/autorizar/gerentes/${idProp}`)
+            axios.get(`http://192.168.1.220:3000/api/autorizar/gerentes/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -101,7 +102,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacion = () => {
         if (idProp) {
-            axios.get(`http://192.168.1.131:3000/api/revertir/${idProp}`)
+            axios.get(`http://192.168.1.220:3000/api/revertir/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -118,7 +119,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const revertirAutorizacionGerentes = () => {
         if (idProp) {
-            axios.get(`http://192.168.1.131:3000/api/revertir/gerentes/${idProp}`)
+            axios.get(`http://192.168.1.220:3000/api/revertir/gerentes/${idProp}`)
             .then(response => {
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
@@ -134,13 +135,53 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     //////////////////////////////////////////////////////////////////////////////
     // Buscar la compra específica por idProp
     const compra = compras.length > 0 ? compras[0] : null;
+    console.log('pdf cotizacion: ', compra?.pdf_coti);
     console.log('pdf factura: ', compra?.pdf_fac);
     console.log('requisicion: ', compra?.requisicion);
+
+    const downloadCoti = async () => {
+        if (idProp) {
+            try {
+                const url = `http://192.168.1.220:3000/api/documento/${idProp}`;
+                const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.pdf_coti}`;
+    
+                console.log('Iniciando descarga de pdf cotizacion...');
+                console.log('URL de descarga:', url);
+                console.log('Ruta local del archivo:', localFile);
+    
+                const downloadOptions = {
+                    fromUrl: url,
+                    toFile: localFile,
+                };
+    
+                const result = await RNFS.downloadFile(downloadOptions).promise;
+    
+                console.log('Resultado de la descarga:', result);
+                console.log('Código de estado:', result.statusCode);
+                
+                if (result.statusCode === 200) {
+                    const fileStat = await RNFS.stat(localFile);
+                    // Verifica si el archivo se guardó correctamente
+                    console.log('Estadísticas del archivo: ', fileStat);
+                    // Notifica al usuario que la descarga fue exitosa
+                    Alert.alert('Descarga exitosa', 'Documento de cotizacion descargado correctamente.');
+                } else {
+                    console.error('Status code no es 200 ok.');
+                    Alert.alert('Descarga no exitosa', 'El documento no existe.');
+                }
+            } catch (error) {
+                console.error('Error al descargar el PDF Cotizacion', error);
+                Alert.alert('Descarga no exitosa', 'Error al intentar buscar el documento.');
+            }
+        } else {
+            Alert.alert('Error', 'ID de documento no proporcionado.');
+        }
+    };
 
     const downloadPdf = async () => {
         if (idProp) {
             try {
-                const url = `http://192.168.1.131:3000/api/documento/${idProp}`;
+                const url = `http://192.168.1.220:3000/api/documento/${idProp}`;
                 const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.pdf_fac}`;
     
                 console.log('Iniciando descarga de pdf factura...');
@@ -179,7 +220,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     const downloadReq = async () => {
         if (idProp) {
             try {
-                const url = `http://192.168.1.131:3000/api/documento/${idProp}`;
+                const url = `http://192.168.1.220:3000/api/documento/${idProp}`;
                 const localFile = `${RNFS.DownloadDirectoryPath}/${compra?.requisicion}`;
     
                 console.log('Iniciando descarga de requisicion...');
@@ -293,7 +334,10 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                             
                     )}
                 </View>
-
+                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadCoti}>
+                    <Text style={stylesDetalle.textPdf}>Descargar Cotización</Text>
+                    <Icon name="download" size={30} color="#fff" />
+                </TouchableOpacity>
                 <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
                     <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
                     <Icon name="download" size={30} color="#fff" />

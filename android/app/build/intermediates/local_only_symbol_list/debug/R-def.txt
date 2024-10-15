@@ -7,3 +7,4 @@ mipmap ic_launcher_round
 string app_name
 string appnotifications
 style AppTheme
+xml network_security_config

@@ -11,7 +11,7 @@ const stylesPendientes = StyleSheet.create({
       },
       titleText: {
         color: '#000',
-        fontSize: 32,
+        fontSize: 26,
         marginLeft: 8,
       },
       cardSection:{
@@ -63,9 +63,9 @@ const stylesPendientes = StyleSheet.create({
         fontSize: 14,
       },
       cardSec3: {
-        width: '100%',
+        width: '92%',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 10,
       },

@@ -56,7 +56,7 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
             case "Autorizados":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/autorizados';
+                url = 'http://192.168.1.220:3000/api/autorizados';
                 console.log('query es: ', queryProp);
                 console.log('todas directores');
                 break;
@@ -64,7 +64,7 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
             case "AutorizadosGerentes":
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/autorizados/gerentes';
+                url = 'http://192.168.1.220:3000/api/autorizados/gerentes';
                 console.log('query es: ', queryProp);
                 console.log('todas gerentes');
                 break;
@@ -72,35 +72,35 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
             case "ordenesCompra":
                 setIdDetalle(0);
                 setVerDetalle(false);
-                url = 'http://192.168.1.131:3000/api/autorizados/oc';
+                url = 'http://192.168.1.220:3000/api/autorizados/oc';
                 console.log('es oc');
                 break;
 
             case "ordenesCompraGerentes":
                 setIdDetalle(0);
                 setVerDetalle(false);
-                url = 'http://192.168.1.131:3000/api/autorizados/oc/gerentes';
+                url = 'http://192.168.1.220:3000/api/autorizados/oc/gerentes';
                 console.log('es oc gerentes');
                 break;
 
             case "solicitudesGastos":
                 setIdDetalle(0);
                 setVerDetalle(false);
-                url = 'http://192.168.1.131:3000/api/autorizados/sg';
+                url = 'http://192.168.1.220:3000/api/autorizados/sg';
                 console.log('es sg');
                 break;
 
             case "solicitudesGastosGerentes":
                 setIdDetalle(0);
                 setVerDetalle(false);
-                url = 'http://192.168.1.131:3000/api/autorizados/sg/gerentes';
+                url = 'http://192.168.1.220:3000/api/autorizados/sg/gerentes';
                 console.log('es sg gerentes');
                 break;
 
             default:
                 setVerDetalle(false);
                 setIdDetalle(0);
-                url = 'http://192.168.1.131:3000/api/error';
+                url = 'http://192.168.1.220:3000/api/error';
                 (<Text>Cargando...</Text>)
                 console.log('query es: ', queryProp);
                 console.log('es error');
@@ -143,13 +143,13 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
 
     let titleText;
     if (queryProp == 'ordenesCompra' || queryProp == 'ordenesCompraGerentes') {
-        titleText = 'Ordenes de compra autorizadas';
+        titleText = 'Ordenes autorizadas';
     } else if (queryProp == 'solicitudesGastos' || queryProp == 'solicitudesGastosGerentes') {
-        titleText = 'Solicitudes de gastos autorizadas';
+        titleText = 'Solicitudes autorizadas';
     } else if (queryProp == '') {
-        titleText = 'Compras autorizadas';
+        titleText = 'Solicitudes autorizadas';
     } else {
-        titleText = 'Compras autorizadas';
+        titleText = 'Solicitudes autorizadas';
     }
 
     // Componente para renderizar la lista de autorizados
