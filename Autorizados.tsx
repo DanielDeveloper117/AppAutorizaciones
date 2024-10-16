@@ -158,7 +158,7 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
         <SafeAreaView style={{height: '100%'}}>
             <ScrollView>
                 <View style={stylesAutorizados.title}>
-                    <Icon name="check-circle-outline" size={60} color="#797676" />
+                    <Icon name="check-circle-outline" size={50} color="#797676" />
                     <Text style={stylesAutorizados.titleText}>{titleText}</Text>
                 </View>
 

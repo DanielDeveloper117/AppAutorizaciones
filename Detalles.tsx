@@ -22,6 +22,7 @@ interface Compra {
     c31_tipo: string;
     c6_folio: string;
     c7_moneda: string;
+    forma_pago: string;
     c9_fecha: string;
     c32_provedor: string;
     c16_total: number;
@@ -34,6 +35,7 @@ interface Compra {
     pdf_coti: string
     pdf_fac: string;
     requisicion: string;
+    caso: string;
 }
 
 export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: number; onBack: (forceUpdate?: boolean) => void; tipoUsuarioDetalles?: string; }) {
@@ -56,17 +58,26 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
         }
     }, [idProp]);
     //////////////////////////////////////////////////////////////////////////////
-
+    /////////////////////////////DIRECTOR AUTORIZA UNA COMPRA
     const autorizarCompra = () => {
         if (idProp) {
             axios.get(`http://192.168.1.220:3000/api/autorizar/${idProp}`)
             .then(response => {
                 console.log('Compra autorizada exitosamente');
-    
+                //Alert.alert('Autorizacion exitosa', 'La solicitud se ha autorizado correctamente.');
+
                 // Mostrar mensaje de éxito si el correo se envió correctamente
                 if (response.data.emailSent) {
+                    if(compra?.caso === 'pp'){
+                        Alert.alert('Autorizacion exitosa', 'Solicitud autorizada correctamente, compras procedera con la facturación.');
+                        
+                    }else{
+                        Alert.alert('Autorizacion exitosa', 'Solicitud autorizada correctamente, correo enviado a finanzas.');
+
+                    }
                     console.log('Compra autorizada y correo enviado exitosamente.');
                 } else {
+                    Alert.alert('Error', 'No fue posible enviar la autorizacion.');
                     console.log('Compra autorizada, pero no se pudo enviar el correo.');
                 }
     
@@ -80,7 +91,6 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
             });
         }
     };
-    
     //////////////////////////////////////////////////////////////////////////////
     //////////////////////////////-BLOQUE DE CODIGO PARA REALIZAR PETICION A LA CONSULTA
     const autorizarCompraGerentes = () => {
@@ -291,6 +301,9 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                             <View style={stylesDetalle.rowDetalle}>
                                 <Text style={stylesDetalle.textDetalle}>Moneda: <Text style={stylesDetalle.textDetalleValue}>{compra.c7_moneda}</Text></Text>
                             </View>
+                            <View style={stylesDetalle.rowDetalle}>
+                                <Text style={stylesDetalle.textDetalle}>Forma de pago: <Text style={stylesDetalle.textDetalleValue}>{compra.forma_pago}</Text></Text>
+                            </View>
                             <View style={stylesDetalle.rowDetalle}>    
                                 {/* <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.fecha).format('YYYY-MM-DD')}</Text></Text> */}
                                 <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.c9_fecha).format('DD-MM-YYYY')}</Text></Text>
@@ -338,10 +351,15 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                     <Text style={stylesDetalle.textPdf}>Descargar Cotización</Text>
                     <Icon name="download" size={30} color="#fff" />
                 </TouchableOpacity>
-                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
-                    <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
-                    <Icon name="download" size={30} color="#fff" />
-                </TouchableOpacity>
+                {compra?.caso === 'pp' ? (
+                    null // No se muestra nada
+                ) : (
+                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
+                        <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
+                        <Icon name="download" size={30} color="#fff" />
+                    </TouchableOpacity>
+                )}
+
                 <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadReq}>
                     <Text style={stylesDetalle.textPdf}>Descargar requisición</Text>
                     <Icon name="download" size={30} color="#fff" />

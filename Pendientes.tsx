@@ -140,7 +140,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
             <SafeAreaView style={{height: '100%'}}>
                 <ScrollView>
                     <View style={stylesPendientes.title}>
-                        <Icon name="notifications-none" size={60} color="#797676" />
+                        <Icon name="notifications-none" size={50} color="#797676" />
                         <Text style={stylesPendientes.titleText}>{queryProp === 'ordenesCompra' || queryProp === 'ordenesCompraGerentes' ? 'Ordenes pendientes' : 'Solicitudes pendientes'}</Text>
                     </View>
 
