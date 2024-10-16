@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
       alignContent: 'center',
       alignSelf: 'center',
       marginBottom: 10,
-      marginLeft: '50%',
+      marginLeft: '40%',
       overflow: 'hidden',
     },
     subOptionsContainer: {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
       alignContent: 'center',
       alignSelf: 'center',
       marginBottom: 10,
-      marginLeft: '50%',
+      marginLeft: '40%',
       overflow: 'hidden',
     },
     textSubAutorizados: {

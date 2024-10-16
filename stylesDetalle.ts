@@ -134,7 +134,6 @@ const stylesDetalle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 300,
-
   },
   btnRojo: {
     width: '100%',
@@ -151,9 +150,19 @@ const stylesDetalle = StyleSheet.create({
     marginBottom: 300,
 
   },
+  textGuardar: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: '500',
+  },
+  containerBtn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   btnPdf: {
-    width: '100%',
-    height: 60,
+    width: '48%',
+    height: 80,
     backgroundColor: '#860102',
     borderRadius: 3,
     padding: 14,
@@ -168,14 +177,9 @@ const stylesDetalle = StyleSheet.create({
   },
   textPdf: {
     color: '#fff',
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: '500',
     paddingRight: 10,
-  },
-  textGuardar: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: '500',
   },
 });
 

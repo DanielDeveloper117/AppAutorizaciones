@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Linking
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import stylesDetalle from './stylesDetalle'; 
@@ -114,6 +115,7 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
         if (idProp) {
             axios.get(`http://192.168.1.220:3000/api/revertir/${idProp}`)
             .then(response => {
+                Alert.alert('Proceso exitoso', 'Autorizacion cancelada correctamente.');
                 console.log('Autorizacion cancelada correctamente');
                 // Actualizar el estatus localmente después de la autorización
                 //setCompras(prevCompras => prevCompras.map(compra => compra.id === idProp ? { ...compra, estatus: 2 } : compra));
@@ -148,7 +150,8 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
     console.log('pdf cotizacion: ', compra?.pdf_coti);
     console.log('pdf factura: ', compra?.pdf_fac);
     console.log('requisicion: ', compra?.requisicion);
-
+    
+    ////////////////////// PETICION PARA DESCARGAR COTIZACION
     const downloadCoti = async () => {
         if (idProp) {
             try {
@@ -187,7 +190,77 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
             Alert.alert('Error', 'ID de documento no proporcionado.');
         }
     };
+    ///// PETICION PARA VER UN PDF
+    // const verPdf = (tipo: string) => {
+    //     if (idProp && compra?.pdf_coti) {
+    //         const pdfUrl = `http://192.168.1.220:3000/api/verpdf/${idProp}/${encodeURIComponent(compra.pdf_coti)}`;
+            
+    //         console.log('URL para visualizar el PDF:', pdfUrl);
+    
+    //         Linking.openURL(pdfUrl)
+    //             .catch(err => {
+    //                 console.error('Error al abrir el PDF:', err);
+    //                 Alert.alert('Error', 'No se pudo abrir el documento.');
+    //             });
+    //     } else {
+    //         Alert.alert('Error', 'ID de documento o nombre de archivo no proporcionado.');
+    //     }
+    // };
 
+    const verPdf = (tipo: string) => {
+        let pdfUrl = '';
+    
+        // Verifica si idProp es válido
+        if (!idProp) {
+            Alert.alert('Error', 'ID de documento no proporcionado.');
+            return;
+        }
+    
+        // Determina la URL según el tipo de documento
+        switch (tipo) {
+            case 'coti':
+                if (compra?.pdf_coti) {
+                    pdfUrl = `http://192.168.1.220:3000/api/vercoti/${idProp}/${encodeURIComponent(compra.pdf_coti)}`;
+                } else {
+                    Alert.alert('Error', 'No se encontró el documento de cotización.');
+                    return;
+                }
+                break;
+    
+            case 'fac':
+                if (compra?.pdf_fac) {
+                    pdfUrl = `http://192.168.1.220:3000/api/verfac/${idProp}/${encodeURIComponent(compra.pdf_fac)}`;
+                } else {
+                    Alert.alert('Error', 'No se encontró el documento de factura.');
+                    return;
+                }
+                break;
+    
+            case 'requ':
+                if (compra?.requisicion) {
+                    pdfUrl = `http://192.168.1.220:3000/api/verrequ/${idProp}/${encodeURIComponent(compra.requisicion)}`;
+                } else {
+                    Alert.alert('Error', 'No se encontró el documento de requisición.');
+                    return;
+                }
+                break;
+    
+            default:
+                Alert.alert('Error', 'Error en el tipo de documento.');
+                return;
+        }
+    
+        console.log('URL para visualizar el PDF:', pdfUrl);
+    
+        Linking.openURL(pdfUrl)
+            .catch(err => {
+                console.error('Error al abrir el PDF:', err);
+                Alert.alert('Error', 'No se pudo abrir el documento.');
+            });
+    };
+    
+
+    ////////////////////// PETICION PARA DESCARGAR FACTURA
     const downloadPdf = async () => {
         if (idProp) {
             try {
@@ -347,23 +420,38 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                             
                     )}
                 </View>
-                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadCoti}>
-                    <Text style={stylesDetalle.textPdf}>Descargar Cotización</Text>
-                    <Icon name="download" size={30} color="#fff" />
-                </TouchableOpacity>
+                <View style={stylesDetalle.containerBtn}>
+                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadCoti}>
+                        <Text style={stylesDetalle.textPdf}>Descargar cotización</Text>
+                        <Icon name="download" size={30} color="#fff" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("coti")}>
+                        <Text style={stylesDetalle.textPdf}>Ver cotización</Text>
+                    </TouchableOpacity>
+                </View>
                 {compra?.caso === 'pp' ? (
                     null // No se muestra nada
                 ) : (
-                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
-                        <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
-                        <Icon name="download" size={30} color="#fff" />
-                    </TouchableOpacity>
+                    <View style={stylesDetalle.containerBtn}>
+                        <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
+                            <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
+                            <Icon name="download" size={30} color="#fff" />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("fac")}>
+                            <Text style={stylesDetalle.textPdf}>Ver factura</Text>
+                        </TouchableOpacity>
+                    </View>
                 )}
 
-                <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadReq}>
-                    <Text style={stylesDetalle.textPdf}>Descargar requisición</Text>
-                    <Icon name="download" size={30} color="#fff" />
-                </TouchableOpacity>
+                <View style={stylesDetalle.containerBtn}>
+                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadReq}>
+                        <Text style={stylesDetalle.textPdf}>Descargar requisición</Text>
+                        <Icon name="download" size={30} color="#fff" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("requ")}>
+                        <Text style={stylesDetalle.textPdf}>Ver requisicion</Text>
+                    </TouchableOpacity>
+                </View>
 
                 {(compra?.c72_estatus == '1' && tipoUsuarioDetalles == "gerente") ? (
                     <TouchableOpacity style={stylesDetalle.btnGuardar} onPress={autorizarCompraGerentes}>
