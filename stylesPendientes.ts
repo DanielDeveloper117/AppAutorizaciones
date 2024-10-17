@@ -6,12 +6,12 @@ const stylesPendientes = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        marginBottom: 40,
+        marginBottom: 10,
 
       },
       titleText: {
         color: '#000',
-        fontSize: 26,
+        fontSize: 24,
         marginLeft: 8,
       },
       cardSection:{
@@ -36,7 +36,7 @@ const stylesPendientes = StyleSheet.create({
         alignItems: 'flex-start',
       },
       cardSec1: {
-        width: '80%',
+        width: '85%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -44,12 +44,17 @@ const stylesPendientes = StyleSheet.create({
       textFecha: {
         // color: '#ffeb3b',
         color: '#0000009c',
-        fontWeight: '600',
-        fontSize: 16,
+        fontSize: 14,
       },
       textTipo: {
         color: '#000',
         fontSize: 20,
+      },
+      textFolio: {
+        // color: '#ffeb3b',
+        color: '#0000009c',
+        fontWeight: '600',
+        fontSize: 14,
       },
       cardSec2: {
         width: '100%',
@@ -63,7 +68,7 @@ const stylesPendientes = StyleSheet.create({
         fontSize: 14,
       },
       cardSec3: {
-        width: '92%',
+        width: '90%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',

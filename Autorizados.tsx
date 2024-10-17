@@ -118,8 +118,8 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
           }
         >
           <View style={stylesAutorizados.title}>
-            <Icon name="check-circle-outline" size={50} color="#797676" />
-            <Text style={stylesAutorizados.titleText}>
+            <Icon name="check-circle-outline" size={45} color="#797676" />
+            <Text allowFontScaling={false} style={stylesAutorizados.titleText}>
               {queryProp === 'ordenesCompra' || queryProp === 'ordenesCompraGerentes'
                 ? 'Ordenes autorizadas'
                 : 'Solicitudes autorizadas'}
@@ -134,22 +134,22 @@ export function Autorizados({ queryProp, propState, tipoUsuarioAutorizados }: { 
                   onPress={() => handleCardPress(compra.id_compra, compra.c31_tipo)}
                 >
                   <View style={stylesAutorizados.cardSec1}>
-                    <Text style={stylesAutorizados.textFecha}>
+                    <Text allowFontScaling={false} style={stylesAutorizados.textFecha}>
                       {dayjs(compra.c9_fecha).format('DD-MM-YYYY')}
                     </Text>
-                    <Text style={stylesAutorizados.textTipo}>
+                    <Text allowFontScaling={false} style={stylesAutorizados.textTipo}>
                       {compra.c31_tipo === 'Sol' ? ' Solicitud de gastos' : compra.c31_tipo}
                     </Text>
                   </View>
                   <View style={stylesAutorizados.cardSec2}>
-                    <Text style={stylesAutorizados.textConcepto}>{compra.c24_concepto1}</Text>
+                    <Text allowFontScaling={false} style={stylesAutorizados.textConcepto}>{compra.c24_concepto1}</Text>
                     <Icon name="keyboard-double-arrow-right" size={60} color="#00bcd4db" />
                   </View>
                   <View style={stylesAutorizados.cardSec3}>
-                    <Text style={stylesAutorizados.textTotal}>Total: $ <Text style={stylesAutorizados.textTotalNumber}>{compra.c16_total}</Text></Text>
+                    <Text allowFontScaling={false} style={stylesAutorizados.textTotal}>Total: $ <Text allowFontScaling={false} style={stylesAutorizados.textTotalNumber}>{compra.c16_total}</Text></Text>
                     <View style={stylesAutorizados.viewAutorizado}>
                       <Icon name="check-circle-outline" size={20} color="#4caf50" />
-                      <Text style={stylesAutorizados.autorizadoText}>Autorizado</Text>
+                      <Text allowFontScaling={false} style={stylesAutorizados.autorizadoText}>Autorizado</Text>
                     </View>
                   </View>
                 </TouchableOpacity>

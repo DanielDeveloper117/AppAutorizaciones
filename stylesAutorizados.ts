@@ -11,7 +11,7 @@ const stylesAutorizados = StyleSheet.create({
   },
   titleText: {
     color: '#000',
-    fontSize: 26,
+    fontSize: 24,
     marginLeft: 8,
   },
   cardSection:{
@@ -36,18 +36,23 @@ const stylesAutorizados = StyleSheet.create({
 
   },
   cardSec1: {
-    width: '80%',
+    width: '85%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   textFecha: {
     color: '#0000009c',
-    fontSize: 16,
+    fontSize: 14,
   },
   textTipo: {
     color: '#000',
     fontSize: 20,
+  },
+  textFolio: {
+    color: '#0000009c',
+    fontWeight: '600',
+    fontSize: 14,
   },
   cardSec2: {
     width: '100%',
@@ -61,7 +66,7 @@ const stylesAutorizados = StyleSheet.create({
     fontSize: 14,
   },
   cardSec3: {
-    width: '100%',
+    width: '95%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

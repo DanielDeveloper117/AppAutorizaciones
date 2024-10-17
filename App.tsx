@@ -57,14 +57,14 @@ export default function App({ usuario, tipoUsuario, onLogout }: {usuario?: strin
 
   const EmailDisplay = ({ usuarioState }: {usuarioState?: string}) => {
     if (!usuarioState) {
-      return <Text style={styles.userName}>No se encontro el correo</Text>;
+      return <Text allowFontScaling={false} style={styles.userName}>No se encontro el correo</Text>;
     }
   
     // Dividir el correo en dos partes: antes y después del arroba
     const [localPart, domainPart] = usuarioState.split('@');
   
     return (
-      <Text style={styles.userName}>
+      <Text allowFontScaling={false} style={styles.userName}>
         {/* {localPart}{"\n"}@{domainPart} */}
         {localPart}{"\n"}@{"sellosyretenes.com"}
 
@@ -297,8 +297,10 @@ const renderComponent = () => {
         end={{ x: 1, y: 0 }}
       >
         <View style={styles.logo_text}>
-          <View style={styles.logo}></View>
-          <Text style={styles.textoLogo}>Autorizaciones digitales</Text>
+          <Image source={require('./android/app/src/images/logo-srs.jpg')} style={styles.logo} />
+
+          
+          <Text allowFontScaling={false} style={styles.textoLogo}>Autorizaciones digitales</Text>
         </View>
         <TouchableOpacity style={styles.btnBurguer}  onPress={toggleMenu}>
           <Icon name="density-medium" size={55} color="#c3bfbfe8" />
@@ -338,7 +340,7 @@ const renderComponent = () => {
             {/* /////////////////////////// OPCION DE PENDIENTES CON SUB MENU ////////////////////////// */}
             <View style={styles.optionPendientes}>
               <View style={styles.optionPendientes2}>
-                <Icon name="notifications-none" size={50} color="#c3bfbfe8" />
+                <Icon name="notifications-none" size={46} color="#c3bfbfe8" />
                 <TouchableOpacity onPress={() =>{ 
                   toggleMenu();
                   if(tipoUsuario=="gerente"){
@@ -347,15 +349,15 @@ const renderComponent = () => {
                     handleSelectComponent('Pendientes');
                   }
                 }}>
-                  <Text style={styles.menuText}>Pendientes</Text>
+                  <Text allowFontScaling={false} style={styles.menuText}>Pendientes</Text>
                 </TouchableOpacity>
               </View>
 
               <TouchableOpacity onPress={togglePendientes}>
                 {isArrowRightVisiblePendientes ? (
-                  <Icon name="keyboard-arrow-right" size={50} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
+                  <Icon name="keyboard-arrow-right" size={48} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
                 ) : (
-                  <Icon name="keyboard-arrow-down" size={50} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
+                  <Icon name="keyboard-arrow-down" size={48} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
                 )}
               </TouchableOpacity>
             </View>
@@ -370,7 +372,7 @@ const renderComponent = () => {
                     handleSelectComponent('PendientesOrdenesCompra');
                   }
                 }}>
-                  <Text style={styles.textSubPendientes}>Ordenes de compra</Text>
+                  <Text allowFontScaling={false} style={styles.textSubPendientes}>Ordenes de compra</Text>
                 </TouchableOpacity>
               </View>
 
@@ -383,7 +385,7 @@ const renderComponent = () => {
                     handleSelectComponent('PendientesSolicitudesGastos');   
                   }
                 }}>
-                  <Text style={styles.textSubPendientes}>Solicitudes de gastos</Text>
+                  <Text allowFontScaling={false} style={styles.textSubPendientes}>Solicitudes de gastos</Text>
                 </TouchableOpacity>
               </View>
             </Animated.View>
@@ -393,7 +395,7 @@ const renderComponent = () => {
             <View style={styles.optionAutorizados}>
               <View style={styles.optionAutorizados2}>
                 
-                <Icon name="check-circle-outline" size={48} color="#c3bfbfe8" />
+                <Icon name="check-circle-outline" size={41} color="#c3bfbfe8" />
                 <TouchableOpacity onPress={() => {
                   toggleMenu();
                   if(tipoUsuario=="gerente"){
@@ -402,15 +404,15 @@ const renderComponent = () => {
                     handleSelectComponent('Autorizados');
                   }
                 }}>
-                  <Text style={styles.menuText}>Autorizadas</Text>
+                  <Text allowFontScaling={false} style={styles.menuText}>Autorizadas</Text>
                 </TouchableOpacity>
               </View>
 
               <TouchableOpacity onPress={toggleAutorizados}>
                 {isArrowRightVisibleAutorizados ? (
-                  <Icon name="keyboard-arrow-right" size={50} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
+                  <Icon name="keyboard-arrow-right" size={48} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
                 ) : (
-                  <Icon name="keyboard-arrow-down" size={50} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
+                  <Icon name="keyboard-arrow-down" size={48} color="#c3bfbfe8" style={{ paddingRight: 15 }} />
                 )}
               </TouchableOpacity>
             </View>
@@ -426,7 +428,7 @@ const renderComponent = () => {
                   }
 
                 }}>
-                  <Text style={styles.textSubAutorizados}>Ordenes de compra</Text>
+                  <Text allowFontScaling={false} style={styles.textSubAutorizados}>Ordenes de compra</Text>
                 </TouchableOpacity>
               </View>
 
@@ -440,14 +442,14 @@ const renderComponent = () => {
                   }
 
                 }}>
-                  <Text style={styles.textSubAutorizados}>Solicitudes de gastos</Text>
+                  <Text allowFontScaling={false} style={styles.textSubAutorizados}>Solicitudes de gastos</Text>
                 </TouchableOpacity>
               </View>
             </Animated.View>
             {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
 
             {/* <View style={styles.optionContainer}>
-              <Icon name="miscellaneous-services" size={50} color="#c3bfbfe8" />
+              <Icon name="miscellaneous-services" size={48} color="#c3bfbfe8" />
               <TouchableOpacity onPress={() => {
                   toggleMenu();
                   if(tipoUsuario=="gerente"){
@@ -457,14 +459,14 @@ const renderComponent = () => {
                   }
                   handleSelectComponent('Configuracion');
                 }}>
-                <Text style={styles.menuText}>Configuracion</Text>
+                <Text allowFontScaling={false} style={styles.menuText}>Configuracion</Text>
               </TouchableOpacity>
             </View> */}
 
             <View style={styles.optionContainer}>
-              <Icon name="logout" size={50} color="#c3bfbfe8" />
+              <Icon name="logout" size={40} color="#c3bfbfe8" />
               <TouchableOpacity onPress={handleLogout}>
-                <Text style={styles.menuText}>Cerrar sesion</Text>
+                <Text allowFontScaling={false} style={styles.menuText}>Cerrar sesion</Text>
               </TouchableOpacity>
             </View>
           </View>

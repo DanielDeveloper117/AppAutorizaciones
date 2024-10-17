@@ -69,7 +69,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appnotifications"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true" >
         <activity
             android:name="com.appnotifications.MainActivity"

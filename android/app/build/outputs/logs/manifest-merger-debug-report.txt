@@ -205,8 +205,8 @@ MERGED from [com.jakewharton:process-phoenix:2.1.2] C:\Users\Usuario\.gradle\cac
 		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-34
 		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:12:7-34
 	android:theme
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-38
-		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-38
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-63
+		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-63
 	android:usesCleartextTraffic
 		ADDED from C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:6:9-44
 	android:name

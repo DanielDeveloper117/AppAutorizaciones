@@ -146,7 +146,7 @@ const Login = () => {
             </View>
 
             <View style={stylesLogin.inputContainer}>
-              <Text style={stylesLogin.label}>Correo</Text>
+              <Text allowFontScaling={false} style={stylesLogin.label}>Correo</Text>
               <TextInput
                 style={stylesLogin.input}
                 placeholder="Ingresa tu correo"
@@ -158,7 +158,7 @@ const Login = () => {
             </View>
 
             <View style={stylesLogin.inputContainer}>
-              <Text style={stylesLogin.label}>Contraseña</Text>
+              <Text allowFontScaling={false} style={stylesLogin.label}>Contraseña</Text>
               <TextInput
                 style={stylesLogin.input}
                 placeholder="Ingresa tu contraseña"
@@ -169,10 +169,10 @@ const Login = () => {
               />
             </View>
 
-            {error ? <Text style={stylesLogin.errorText}>{error}</Text> : null}
+            {error ? <Text allowFontScaling={false} style={stylesLogin.errorText}>{error}</Text> : null}
 
             <TouchableOpacity style={stylesLogin.btnGuardar} onPress={handleLogin}>
-              <Text style={stylesLogin.textGuardar}>Iniciar sesión</Text>
+              <Text allowFontScaling={false} style={stylesLogin.textGuardar}>Iniciar sesión</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>

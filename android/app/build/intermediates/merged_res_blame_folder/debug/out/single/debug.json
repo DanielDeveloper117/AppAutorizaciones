@@ -1,50 +1,54 @@
 [
     {
-        "merged": "com.appnotifications.app-merged_res-40:/drawable_rn_edit_text_material.xml.flat",
-        "source": "com.appnotifications.app-main-42:/drawable/rn_edit_text_material.xml"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\drawable_rn_edit_text_material.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\drawable\\rn_edit_text_material.xml"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\xml\\network_security_config.xml"
     },
     {
         "merged": "com.appnotifications.app-merged_res-40:/xml_network_security_config.xml.flat",
         "source": "com.appnotifications.app-main-42:/xml/network_security_config.xml"
     },
     {
-        "merged": "com.appnotifications.app-merged_res-40:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.appnotifications.app-main-42:/mipmap-hdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-merged_res-40:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Usuario\\.gradle\\daemon\\8.6\\com.appnotifications.app-main-42:\\mipmap-mdpi\\ic_launcher_round.png"
     }
 ]

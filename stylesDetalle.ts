@@ -22,7 +22,7 @@ const stylesDetalle = StyleSheet.create({
   },
   titleText: {
     color: '#000',
-    fontSize: 32,
+    fontSize: 24,
     marginLeft: 8,
   },
   cardSection:{

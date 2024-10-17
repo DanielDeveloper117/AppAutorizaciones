@@ -138,8 +138,8 @@
 70-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:9:7-47
 71        android:roundIcon="@mipmap/ic_launcher_round"
 71-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:11:7-52
-72        android:theme="@style/AppTheme"
-72-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-38
+72        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+72-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\main\AndroidManifest.xml:13:7-63
 73        android:usesCleartextTraffic="true" >
 73-->C:\Users\Usuario\Documents\ProyectoAppNotificaciones\AppNotification\android\app\src\debug\AndroidManifest.xml:6:9-44
 74        <activity

@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
     },
     logo: {
-      width: '28%',
-      height: 50,
+      width: '30%',
+      height: 60,
       marginRight: 10,
       backgroundColor: '#fff',
-      borderRadius: 60,
+      borderRadius: 45,
     },
     textoLogo: {
-      fontSize: 17,
+      fontSize: 16,
       fontWeight: '600',
       color: '#fff',
     },
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     userNameContainer: {},
     userName: {
       color: '#fff',
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: '600',
       marginLeft: 8,
     },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     },
     textSubPendientes: {
       color: '#fff',
-      fontSize: 20,
+      fontSize: 19,
       marginLeft: 15,
     },
     optionAutorizados:{
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     optionIcon: {},
     menuText: {
       color: '#fff',
-      fontSize: 28,
+      fontSize: 27,
       marginLeft: 8,
     },
     componentContainer: {

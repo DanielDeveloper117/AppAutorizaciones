@@ -114,7 +114,7 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
           }>
           <View style={stylesPendientes.title}>
             <Icon name="notifications-none" size={50} color="#797676" />
-            <Text style={stylesPendientes.titleText}>
+            <Text allowFontScaling={false} style={stylesPendientes.titleText} >
               {queryProp === 'ordenesCompra' || queryProp === 'ordenesCompraGerentes' ? 'Ordenes pendientes' : 'Solicitudes pendientes'}
             </Text>
           </View>
@@ -127,28 +127,30 @@ export function Pendientes({ queryProp, propState, tipoUsuarioPendientes }: { qu
                   style={stylesPendientes.cardContainer}
                   onPress={() => handleCardPress(compra.id_compra, compra.c31_tipo)}>
                   <View style={stylesPendientes.cardSec1}>
-                    <Text style={stylesPendientes.textFecha}>
+                    <Text allowFontScaling={false} style={stylesPendientes.textFecha}>
                       {dayjs(compra.c9_fecha).format('DD-MM-YYYY')}
                     </Text>
-                    <Text style={stylesPendientes.textTipo}>
+                    <Text allowFontScaling={false} style={stylesPendientes.textTipo}>
                       {compra.c31_tipo === 'Sol' ? ' Solicitud de gastos' : compra.c31_tipo}
                     </Text>
                   </View>
 
                   <View style={stylesPendientes.cardSec2}>
-                    <Text style={stylesPendientes.textConcepto}>{compra.c24_concepto1}</Text>
+                    <Text allowFontScaling={false} style={stylesPendientes.textConcepto}>{compra.c24_concepto1}</Text>
                     <Icon name="keyboard-double-arrow-right" size={60} color="#00bcd4db" />
                   </View>
                   <View style={stylesPendientes.cardSec3}>
-                    <Text style={stylesPendientes.textTotal}>Total: $ <Text style={stylesPendientes.textTotalNumber}>{compra.c16_total}</Text></Text>
-                    <Text style={stylesPendientes.textFecha}>{compra.c6_folio}</Text>
+                    <Text allowFontScaling={false} style={stylesPendientes.textTotal}>Total: $ <Text allowFontScaling={false} style={stylesPendientes.textTotalNumber}>{compra.c16_total}</Text></Text>
+                    <Text allowFontScaling={false} style={stylesPendientes.textFolio}>{compra.c6_folio}</Text>
                   </View>
                 </TouchableOpacity>
               ))
             ) : (
               <View style={stylesPendientes.cardContainer}>
                 <Text>{compras.length === 0 ? 'Cargando...' : 'No hay datos disponibles'}</Text>
+
               </View>
+
             )}
           </View>
         </ScrollView>

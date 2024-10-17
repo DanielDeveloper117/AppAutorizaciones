@@ -345,68 +345,68 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
             <ScrollView>
                 <TouchableOpacity style={stylesDetalle.backButton} onPress={() => onBack(true)}>
                     <Icon name="arrow-back" size={50} color="#00bcd4db" />
-                    <Text style={stylesDetalle.backButtonText}>Regresar</Text>
+                    <Text allowFontScaling={false} style={stylesDetalle.backButtonText}>Regresar</Text>
                 </TouchableOpacity>
     
                 <View style={stylesDetalle.title}>
-                    <Icon name="article" size={60} color="#797676" />
-                    <Text style={stylesDetalle.titleText}>Detalles</Text>
+                    <Icon name="article" size={50} color="#797676" />
+                    <Text allowFontScaling={false} style={stylesDetalle.titleText}>Detalles</Text>
                 </View>
     
                 <View style={stylesDetalle.sectionDetalles}>
                     {compra ? (
                         <>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Comprador: <Text style={stylesDetalle.textDetalleValue}>{compra.c67_comprador}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Comprador: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c67_comprador}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                {/* <Text style={stylesDetalle.textDetalle}>Tipo: <Text style={stylesDetalle.textDetalleValue}>{compra.tipo}</Text></Text> */}
-                                <Text style={stylesDetalle.textDetalle}>Tipo: 
-                                    <Text style={stylesDetalle.textDetalleValue}>
+                                {/* <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Tipo: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.tipo}</Text></Text> */}
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Tipo: 
+                                    <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>
                                         {compra.c31_tipo === 'Sol' ? ' Solicitud de gastos' : compra.c31_tipo}
                                     </Text>
                                 </Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                {/* <Text style={stylesDetalle.textDetalle}>Folio: <Text style={stylesDetalle.textDetalleValue}>{compra.folio}</Text></Text> */}
-                                <Text style={stylesDetalle.textDetalle}>Folio: <Text style={stylesDetalle.textDetalleValue}>{compra.c6_folio}</Text></Text>
+                                {/* <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Folio: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.folio}</Text></Text> */}
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Folio: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c6_folio}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Moneda: <Text style={stylesDetalle.textDetalleValue}>{compra.c7_moneda}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Moneda: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c7_moneda}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Forma de pago: <Text style={stylesDetalle.textDetalleValue}>{compra.forma_pago}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Forma de pago: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.forma_pago}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>    
-                                {/* <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.fecha).format('YYYY-MM-DD')}</Text></Text> */}
-                                <Text style={stylesDetalle.textDetalle}>Fecha: <Text style={stylesDetalle.textDetalleValue}>{dayjs(compra.c9_fecha).format('DD-MM-YYYY')}</Text></Text>
+                                {/* <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Fecha: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{dayjs(compra.fecha).format('YYYY-MM-DD')}</Text></Text> */}
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Fecha: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{dayjs(compra.c9_fecha).format('DD-MM-YYYY')}</Text></Text>
 
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Proveedor: <Text style={stylesDetalle.textDetalleValue}>{compra.c32_provedor}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Proveedor: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c32_provedor}</Text></Text>
                             </View>
 
                             <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
-                                <Text style={stylesDetalle.textDetalle}>Concepto: </Text>
-                                <Text style={stylesDetalle.textConceptoValue}>{compra.c24_concepto1}</Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Concepto: </Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textConceptoValue}>{compra.c24_concepto1}</Text>
                             </View>
                             <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
-                                <Text style={stylesDetalle.textDetalle}>Concepto 2: </Text>
-                                <Text style={stylesDetalle.textConceptoValue}>{compra.c25_concepto2}</Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Concepto 2: </Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textConceptoValue}>{compra.c25_concepto2}</Text>
                             </View>
                             <View style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginBottom: 15 }}>
-                                <Text style={stylesDetalle.textDetalle}>Concepto 3: </Text>
-                                <Text style={stylesDetalle.textConceptoValue}>{compra.c26_concepto3}</Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Concepto 3: </Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textConceptoValue}>{compra.c26_concepto3}</Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Autoriza: <Text style={stylesDetalle.textDetalleValue}>{compra.c30_autoriza}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Autoriza: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c30_autoriza}</Text></Text>
                             </View>
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Solicita: <Text style={stylesDetalle.textDetalleValue}>{compra.c48_solicita}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Solicita: <Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c48_solicita}</Text></Text>
                             </View>
 
                             <View style={stylesDetalle.rowDetalle}>
-                                <Text style={stylesDetalle.textDetalle}>Total: $<Text style={stylesDetalle.textDetalleValue}>{compra.c16_total}</Text></Text>
+                                <Text allowFontScaling={false} style={stylesDetalle.textDetalle}>Total: $<Text allowFontScaling={false} style={stylesDetalle.textDetalleValue}>{compra.c16_total}</Text></Text>
 
                             </View>
                         </>
@@ -422,11 +422,11 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                 </View>
                 <View style={stylesDetalle.containerBtn}>
                     <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadCoti}>
-                        <Text style={stylesDetalle.textPdf}>Descargar cotización</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Descargar cotización</Text>
                         <Icon name="download" size={30} color="#fff" />
                     </TouchableOpacity>
                     <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("coti")}>
-                        <Text style={stylesDetalle.textPdf}>Ver cotización</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Ver cotización</Text>
                     </TouchableOpacity>
                 </View>
                 {compra?.caso === 'pp' ? (
@@ -434,42 +434,42 @@ export function Detalles({ idProp, onBack, tipoUsuarioDetalles }: { idProp?: num
                 ) : (
                     <View style={stylesDetalle.containerBtn}>
                         <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadPdf}>
-                            <Text style={stylesDetalle.textPdf}>Descargar factura</Text>
+                            <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Descargar factura</Text>
                             <Icon name="download" size={30} color="#fff" />
                         </TouchableOpacity>
                         <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("fac")}>
-                            <Text style={stylesDetalle.textPdf}>Ver factura</Text>
+                            <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Ver factura</Text>
                         </TouchableOpacity>
                     </View>
                 )}
 
                 <View style={stylesDetalle.containerBtn}>
                     <TouchableOpacity style={stylesDetalle.btnPdf} onPress={downloadReq}>
-                        <Text style={stylesDetalle.textPdf}>Descargar requisición</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Descargar requisición</Text>
                         <Icon name="download" size={30} color="#fff" />
                     </TouchableOpacity>
                     <TouchableOpacity style={stylesDetalle.btnPdf} onPress={()=>verPdf("requ")}>
-                        <Text style={stylesDetalle.textPdf}>Ver requisicion</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textPdf}>Ver requisicion</Text>
                     </TouchableOpacity>
                 </View>
 
                 {(compra?.c72_estatus == '1' && tipoUsuarioDetalles == "gerente") ? (
                     <TouchableOpacity style={stylesDetalle.btnGuardar} onPress={autorizarCompraGerentes}>
-                        <Text style={stylesDetalle.textGuardar}>Autorizar</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textGuardar}>Autorizar</Text>
                     </TouchableOpacity>
                 ) : (compra?.c72_estatus == '2' && tipoUsuarioDetalles == "gerente") ? (
                     <TouchableOpacity style={stylesDetalle.btnRojo} onPress={revertirAutorizacionGerentes}>
-                        <Text style={stylesDetalle.textGuardar}>Revertir autorización</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textGuardar}>Revertir autorización</Text>
                     </TouchableOpacity>
                 ) : null}
 
                 {(compra?.c72_estatus == '3' && tipoUsuarioDetalles == "director") ? (
                     <TouchableOpacity style={stylesDetalle.btnGuardar} onPress={autorizarCompra}>
-                        <Text style={stylesDetalle.textGuardar}>Autorizar</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textGuardar}>Autorizar</Text>
                     </TouchableOpacity>
                 ) : (compra?.c72_estatus == '4' && tipoUsuarioDetalles == "director") ? (
                     <TouchableOpacity style={stylesDetalle.btnRojo} onPress={revertirAutorizacion}>
-                        <Text style={stylesDetalle.textGuardar}>Revertir autorización</Text>
+                        <Text allowFontScaling={false} style={stylesDetalle.textGuardar}>Revertir autorización</Text>
                     </TouchableOpacity>
                 ) : null}
 
